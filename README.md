@@ -1,4 +1,4 @@
-# Enterprise Pro Team Sandbox Repository
+# Enterprise Pro Team Main Repository
 test message hi :D
 
 # Warning

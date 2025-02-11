@@ -1,0 +1,2 @@
+Need to confirm requirements with client.
+By this time next week coding tasks need to be assigned to each team member, front end, back end, database, machine learning model.

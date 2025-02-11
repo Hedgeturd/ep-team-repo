@@ -1,0 +1,41 @@
+# Requirements
+A list of requirements/potential features, this list is not exhaustive, and different aspects can be prioritised over others.
+
+- Responsive design: adapts to both tablet and PC, web application
+- Data visualisation
+    - Main page: 
+        - Sensor charts (either grouped together, e.g. {sensors 1-4, sensors 4-8}, or enumerated (sensors 1, 2, 3, 4, 5,... 8) )
+        - Statistics: e.g. how much anomalous data, min/average/median/max in the last X hours (e..g last 3 hours)
+    - Update data in real-time
+    - View past data: 
+- Authentication system
+    - Login/registration
+    - Two roles: 
+        - regular user (production operator)
+        - admin user (manager staff member) who can approve or decline registrations of new users 
+    - Reset passwords
+- Real-time data: currently no live data stream
+    - Data should be simulated, and made semi-realistic, this can involve:
+        - probabilistic/statistical methods
+        - "replaying" past data 
+        - or a random number generator for each sensor within a particular range of sensor
+    - Thus, the API has two functions: for historical data, use the SQL database, for new/real-time data, use a simulator/data generator (simulated data doesn't have to be persisted to the database but it also can be) 
+- Traffic light system
+    - Machine Learning (ML) model provided
+        - ML model uses Python library, 99% of industrial and research Machine Learning uses Python
+        - It is easy to integrate if you use a backend/server that is written in Python, if not, you can setup a second API service that is only used to provide predictions/anomaly detection, which your main backend/server/application (e.g. in JavaScript or Python) would call this second Python service through something like a HTTP REST API
+    - Provides expected value, upper and lower bounds 
+    - Thresholds can be defined for when a data point should be coloured green/amber/red accordingly
+        - e.g. maybe value which is >15 of upper is marked as red of <15 of lower boundary is marked as red 
+    - **The accuracy of the machine learning/predictions is not part of this project**. In the future, more advanced deep learning models will be deployed.
+
+Other features are welcome as long as they make sense with the application, e.g. 2FA, light/dark mode theming.
+
+# Directory structure 
+- `data/` - contains cleaned line4.csv and line5.csv data, corresponding to production line 4 and line 5
+- `data/raw_uncleaned` - contains unprocessed/non-cleaned line4.csv and line5.csv, where line5 has a faulty additional sensor (r01), line4.csv and line5.csv contain some rows with negative values due to sensors being installed/adjusted as part of maintenance, and data that is not part of baking (the cleaned `line4.csv` and `line5.csv` only includes data where baking is active, as identified by having any sensor in the region of >=100 for rows)
+- `machine_learning` - contains the ML models in subdirectories, and a minimal/small usage example in a Jupyter notebook `example.ipynb`
+- `machine_learning/models` - Prophet models for Line4 and Line5, separated by directory. 
+
+See Prophet docs also:
+- https://facebook.github.io/prophet/

@@ -1,0 +1,14 @@
+Interview Notes:
+
+Data should update in real-time (every 30 seconds).
+HTML, CSS and Java Script should be used.
+Traffic data should be sorted into upper and lower boundaries.
+Machine Learning program is written in python.
+Factory workers will be the main users, not open to the public.
+2 Roles: Operator, Manager(Admin).
+Manager should be able to approve user registration.
+Main page should include production line data and sensor data in graphs.
+Data should be shown in green, amber and red.
+A seperate page should contain date periods to sort through historical data to display comparisons.
+Alerts/Notifications of anomalies should be sent in emails.
+Simulation data/traffic light data/Machine learning are not functional requirements.

@@ -1,0 +1,62 @@
+Team Meeting Minutes
+
+Project: Preparation for client interview
+
+## Meeting 1
+**Date:** 06/02/2025  
+**Time:** 9:00am - 11:00am (120 Minutes)  
+
+1. Attendance  
+**Present:** Kian Vishnu Biswas, Mahad Nazar, Ehtasham Afzal, Tayyib Khan, Adam Rasheed  
+**Absent:** Areesha Qazi (Work), Lina Khalid Naciri (Lab session)  
+
+2. Agenda  
+1. Preparing for Client Interview  
+
+3. Meeting Discussions  
+- Prepared questions for the client regarding the project.  
+- Discussed functional and non-functional requirements.  
+- Inquired about preferred programming languages and API framework.  
+
+4. Action Items & Next Steps  
+| Finalise client interview questions |
+| Research possible API frameworks | 
+
+## Meeting 2
+**Date:** 06/02/2025  
+**Time:** 3:20pm - 3:40pm (20 Minutes)  
+
+1. Attendance  
+**Present:** Kian Vishnu Biswas, Mahad Nazar, Ehtasham Afzal, Adam Rasheed, Lina Khalid Naciri  
+**Absent:** Tayyib Khan (Work), Areesha Qazi (Work)  
+
+2. Agenda  
+1. Interview with Client  
+
+3. Meeting Discussions  
+- Established functional and non-functional requirements.  
+- Data must be updated in real-time and stored in the client's in-house server/cloud.  
+- Traffic data sorted in upper and lower boundaries.  
+- Machine Learning program written in Python.  
+- **User roles:** Operator & Manager (Admin).  
+- Manager must approve user registration.  
+- **Main Page:** Production line data, graphs, and sensors.  
+- **Data Highlighting:** Green, Amber, and Red categories.  
+- **Historical Data Page:** Filter by date periods.  
+- **Alerts/Notifications:** Anomalies should trigger email notifications.  
+- **Simulation data, traffic light system, and machine learning are NOT functional requirements.**  
+
+4. Action Items & Next Steps  
+| Document finalised requirements | 
+| Confirm API framework | 
+
+## Next Meeting Details  
+**Date & Time:** 11/02/2025 2pm - 4pm
+**Agenda:**  
+1. Review documented requirements.  
+2. Plan initial system design.  
+
+6. Meeting Adjourned  
+- Notes prepared by Kian Vishnu Biswas.  
+- Reviewed by Ehtasham Afzal.
+

@@ -1,0 +1,41 @@
+Team Meeting Minutes
+
+Project: Interactive Real-Time Visualisation Dashboard for Rakusens
+
+## Meeting 1
+**Date:** 04/02/2025  
+**Time:** 2pm - 4pm (120 minutes) 
+
+1. Attendance  
+**Present:** Kian Vishnu Biswas, Ehtasham Afzal, Mahad Nazar, Adam Rasheed, Tayyib Khan, Areesha Qazi, Lina Khalid Naciri
+
+
+2. Agenda  
+1. Project Allocation - Live Interactive Dashboard  
+2. Researching Rakusens Company  
+3. Planning Questions for Client Interview  
+
+3. Meeting Discussions  
+- Confirmed project allocation: **Live Interactive Dashboard**.  
+- Researched **Rakusens' company background, industry, and operational needs**.  
+- Discussed potential challenges and how the dashboard can help optimise operations.  
+- Planned key **questions to ask the client**, including:  
+  - Functional and non-functional requirements.  
+  - Preferred technologies and data storage methods.  
+  - Real-time update frequency and required data visualisations.  
+  - Access control and user roles within the system.  
+
+4. Action Items & Next Steps  
+| Finalise list of client interview questions | 
+| Conduct further research on Rakusens' data handling | 
+
+## Next Meeting Details  
+**Date & Time:** 6/02/2025 9am - 11am  
+**Agenda:**  
+1. Prepare for client interview.  
+2. Review research findings.  
+
+6. Meeting Adjourned  
+- Notes prepared by Kian Vishnu Biswas.  
+- Reviewed by Ehtasham Afzal.
+

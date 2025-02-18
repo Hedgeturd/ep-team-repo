@@ -1,6 +1,6 @@
 # Enterprise Pro Team Sandbox Repository
 
-# Warning
+# ⚠️ Warning ⚠️
 ## Repository Rules
 Please make sure you are uploading to the Sandbox branch.<br>
 You can confirm this by checking the Header of this text for the word "Sandbox".<br>

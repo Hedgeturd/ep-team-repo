@@ -1,0 +1,47 @@
+Team Meeting Minutes
+Project: Interactive Real-Time Visualisation Dashboard for Rakusens
+Date: 11/02/2025
+Time:2pm – 4pm (2 Hours)
+1. Attendance
+Kian Vishnu Biswas, Ehtasham Afzal, Mahad Nazar, Adam Rasheed, Tayyib Khan, Areesha Qazi, Lina Khalid Naciri
+2. Agenda
+1.	Task Assignment for SRS and SDD Documents
+2.	Planning for Documentation Structure
+3.	Initial Website Design Draft Discussion
+4.	Next Steps & Action Items
+3. Meeting Discussions
+3.1 Tasks for SRS and SDD Documents
+•	Discussed the structure and purpose of the Software Requirements Specification (SRS) and Software Design Document (SDD).
+•	Tasks:
+o	SRS Development:  (Functional Requirements),  (Non-functional Requirements),  (User Roles & System Overview).
+o	SDD Development:  (System Architecture),  (Database Schema),  (API Design & Endpoints).
+3.2 Planning for Documentation Structure
+•	Reviewed the existing coursework document for formatting guidelines.
+•	Outlined key sections and confirmed the required level of detail.
+3.3 Initial Website Design Draft Discussion
+•	Discussed layout and structure for the dashboard interface.
+•	Agreed on using React.js for the frontend and integrating Plotly.js for data visualisation.
+•	Created a rough website sketch outlining the key pages: 
+o	Login Page (Username/Password Authentication)
+o	Dashboard View (Real-time Sensor Data, Graphs, Anomaly Alerts)
+o	Historical Data Page (Filtering, Trend Analysis)
+o	Admin Panel (User Management, System Logs)
+•	Noted requirements for responsiveness and cross-platform accessibility.
+4. Action Items & Next Steps
+Task	Assigned To	
+Complete first draft of SRS	Kian Vishnu Biswas	
+Complete first draft of SDD	Ehtasham Afzal	
+Create initial website sketches	Lina Khalid Naciri	
+Set up GitHub repository & file structure	Mahad Nazar	
+5. Next Meeting Details
+•	Date & Time: 13/02/2025 1pm – 3pm
+•	Agenda: 
+1.	Review progress on SRS & SDD drafts.
+2.	Finalise website wireframe and frontend tech stack.
+3.	Discuss API development timeline.
+6. Meeting Adjourned
+•	Meeting ended at 4pm.
+•	Notes prepared by Kian Vishnu Biswas.
+•	Reviewed by Ehtasham Afzal.
+
+

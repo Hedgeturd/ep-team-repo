@@ -23,7 +23,7 @@ o 3rd Choice: Project 2 - Web interface to interact with "Assets".
 • Plan an interview with the client allocated to us in the next meeting.
 
 4. Next Meeting Details
-• Date & Time: 30/01/2025 1pm - 3pm
+• Date & Time: 4/02/2025 2pm - 4pm
 • Agenda: 
 1. Plan interview with the client.
 2. Discuss initial project requirements.

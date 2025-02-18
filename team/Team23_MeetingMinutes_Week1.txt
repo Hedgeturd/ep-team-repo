@@ -1,7 +1,35 @@
-Meeting Minutes
-29/01/2025
+Team Meeting Minutes
+
+Project: To be determined
+Date: 29/01/2025 
+Time: 2pm - 4pm (120 Minutes)
+
+1. Attendance
 Kian Vishnu Biswas, Mahad Nazar, Ehtasham Afzal, Tayyib Khan, Adam Rasheed, Areesha Qazi, Lina Khalid Naciri
-Task: Choosing a project
-120 Minutes
-Project choices were ranked. 1: Project 5 - Job Advertisement Portal, 2: Project 4 - Interactive, real-time visualisation dashboard and 3: Prokect 2 - Web interface to interact with "Assets".
-Next week we are to plan our interview with the client allocated to us.
+
+2. Agenda
+1. Choosing a Project
+2. Ranking Project Choices
+3. Planning for Next Steps
+
+3. Meeting Discussions
+3.1 Project Selection
+• Discussed and ranked potential projects:
+o 1st Choice: Project 5 - Job Advertisement Portal
+o 2nd Choice: Project 4 - Interactive, real-time visualisation dashboard
+o 3rd Choice: Project 2 - Web interface to interact with "Assets".
+
+3.2 Next Steps
+• Plan an interview with the client allocated to us in the next meeting.
+
+4. Next Meeting Details
+• Date & Time: 30/01/2025 1pm - 3pm
+• Agenda: 
+1. Plan interview with the client.
+2. Discuss initial project requirements.
+
+5. Meeting Adjourned
+• Meeting ended at 4pm.
+• Notes prepared by Kian Vishnu Biswas.
+• Reviewed by Ehtasham Afzal.
+

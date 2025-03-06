@@ -1,8 +1,8 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="login.js"></script>
     <meta charset="UTF-8">
+    <script src="login.js"></script>
     <link rel="stylesheet" href="./styles/login.css">
     <title>Rakusens Login</title>
   </head>
@@ -19,12 +19,12 @@
         <div class="login-form">
           <input type="radio" id="html" name="fav_language" checked="checked" onclick="reg = 0">
           <label class="login-type" for="html">Log In</label>
-          <input type="radio" id="css" name="fav_language" onclick="reg = 1">
+          <input type="radio" id="css" name="fav_language" onclick="location.href='register.html';">
           <label class="login-type-rev" for="css">Sign Up</label>
         </div>
 
         <div class="login-form">
-          <form action="#" onsubmit="return loginFunction(this);">
+          <form name="loginForm" action="#" onsubmit="loginFunction(this)">
             <input type="text" id="user" name="user" placeholder="Username"><br>
             <input type="password" id="pass" name="pass" placeholder="Password"><br><br>
             <input class="submit-button" type="submit" value="Submit">

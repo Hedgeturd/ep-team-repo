@@ -1,11 +1,21 @@
 let reg;    //True = Registering
+//var mysql = require('mysql');
 
 function dbcon(user, pass) {
     alert('Hello there ' + user + ', I am being submitted');
     alert('Your Password is ' + pass);
 }
 
-void function loginFunction() {
+function loginFunction() {
+
+    let x = document.forms['loginForm']["user"].value;
+    let y = document.forms['loginForm']["pass"].value;
+
+    if (!x || !y) {
+        alert('Please fill username and password fields');
+        return;
+    }
+
     // DEBUG ONLY ALERTS
     if (!reg) {
         alert("YOU ARE USING LOGIN MODE")
@@ -14,9 +24,6 @@ void function loginFunction() {
         alert("YOU ARE USING SIGNUP MODE")
     }
 
-    const nameValue = document.getElementById("user").value;
-    const passValue = document.getElementById("pass").value;
-
-    dbcon(nameValue, passValue);
-    window.open("dashboard.html");
+    dbcon(x, y);
+    window.open("eptest1.html");
 }

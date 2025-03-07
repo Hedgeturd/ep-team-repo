@@ -1,0 +1,74 @@
+Meeting 1
+Project: Interactive Real-Time Visualisation Dashboard for Rakusens
+Date: 25/02/2025
+Time: 12pm – 2pm (120 Minutes)
+
+1. Attendance
+Present: Kian Vishnu Biswas, Ehtasham Afzal, Mahad Nazar, Areesha Qazi, Lina Khalid Naciri, Tayyib Khan, Adam Rasheed
+
+2. Agenda
+Review progress on use case diagram and UML class diagram.
+Review progress on website development and database.
+Discuss integration of frontend, backend, and database.
+3. Meeting Discussions
+3.1 Use Case & UML Class Diagram Review
+Assess the completion status.
+Address any required modifications.
+3.2 Website & Database Progress
+Review frontend, backend, and database work done so far.
+Identify any challenges and discuss solutions.
+3.3 Integration Planning
+Plan how frontend, backend, and database will be integrated smoothly.
+4. Action Items & Next Steps
+Continue refining UML class diagram and use case diagram.
+Work on API connectivity between frontend and backend.
+Implement additional database functionalities.
+5. Next Meeting Details
+Date & Time: 04/03/2025, 12pm – 2pm
+Agenda:
+
+Demonstrate progress on integration.
+Conduct initial testing of login and registration features.
+Plan further UI enhancements.
+6. Meeting Adjourned
+Meeting ended at 1pm.
+Notes prepared by Kian Vishnu Biswas.
+Reviewed by Ehtasham Afzal.
+
+Meeting 2
+Project: Interactive Real-Time Visualisation Dashboard for Rakusens
+Date: 25/02/2025
+Time: 2pm – 4pm (120 Minutes)
+
+1. Attendance
+Present: Kian Vishnu Biswas, Ehtasham Afzal, Mahad Nazar, Areesha Qazi, Lina Khalid Naciri, Tayyib Khan, Adam Rasheed
+
+2. Agenda
+Test frontend-backend integration.
+Debug and optimize database queries.
+Discuss security measures for authentication.
+3. Meeting Discussions
+3.1 Frontend & Backend Integration Testing
+Test API endpoints with React.js.
+Debug any errors encountered.
+3.2 Database Optimization
+Ensure efficient SQL queries for login and registration.
+Optimize database performance.
+3.3 Security Discussion
+Implement password hashing and authentication security measures.
+Discuss role-based access control.
+4. Action Items & Next Steps
+Fix integration bugs and finalize API endpoints.
+Strengthen database security and authentication.
+Implement admin panel functionalities.
+5. Next Meeting Details
+Date & Time: 04/03/2025, 12pm – 2pm
+Agenda:
+
+Review finalized integration.
+Conduct UI/UX review.
+Plan final documentation structure.
+6. Meeting Adjourned
+Meeting ended at 4pm.
+Notes prepared by Kian Vishnu Biswas.
+Reviewed by Ehtasham Afzal.

@@ -1,0 +1,74 @@
+Meeting 1
+Project: Interactive Real-Time Visualisation Dashboard for Rakusens
+Date: 04/03/2025
+Time: 12pm – 1pm (60 Minutes)
+
+1. Attendance
+Present: Kian Vishnu Biswas, Ehtasham Afzal, Mahad Nazar, Areesha Qazi, Lina Khalid Naciri, Tayyib Khan, Adam Rasheed
+
+2. Agenda
+Finalize and complete the first iteration of the project.
+Perform last-minute bug fixes and optimisations.
+Review documentation and ensure it is ready for submission.
+3. Meeting Discussions
+3.1 Completing the First Iteration
+Ensure all core functionalities are implemented and working as expected.
+Final review of frontend, backend, and database integration.
+3.2 Bug Fixing and Optimisation
+Debug any remaining issues.
+Improve performance where necessary.
+3.3 Documentation Review
+Ensure SRS, SDD, and user manual are complete.
+Verify that all diagrams (UML, Use Case) are correctly formatted and included.
+4. Action Items & Next Steps
+Finalise and freeze the first iteration of the project.
+Upload all project files to the designated platform (GitHub, university portal, etc.).
+Make any final refinements to the documentation before submission.
+5. Next Meeting Details
+Date & Time: 11/03/2025, 12pm – 2pm
+Agenda:
+
+Confirm successful upload and review feedback if available.
+Discuss next steps for potential improvements.
+Reflect on lessons learned and team contributions.
+6. Meeting Adjourned
+Meeting ended at 1pm.
+Notes prepared by Kian Vishnu Biswas.
+Reviewed by Ehtasham Afzal.
+Meeting 2
+Project: Interactive Real-Time Visualisation Dashboard for Rakusens
+Date: 04/03/2025
+Time: 2pm – 4pm (120 Minutes)
+
+1. Attendance
+Present: Kian Vishnu Biswas, Ehtasham Afzal, Mahad Nazar, Areesha Qazi, Lina Khalid Naciri, Tayyib Khan, Adam Rasheed
+
+2. Agenda
+Upload first iteration to the required platform.
+Perform final checks on code, database, and API functionality.
+Ensure documentation is complete and meets requirements.
+3. Meeting Discussions
+3.1 Uploading the First Iteration
+Confirm all necessary files are included.
+Validate deployment and confirm that everything functions correctly.
+3.2 Final Testing & Debugging
+Conduct one last round of testing.
+Fix any last-minute issues.
+3.3 Documentation Submission
+Ensure all documents are formatted correctly.
+Assign team members to do a final proofread.
+4. Action Items & Next Steps
+Double-check that the uploaded project is accessible and complete.
+Confirm that documentation is submitted before the deadline.
+Prepare for the next phase of the project (if required).
+5. Next Meeting Details
+Date & Time: 11/03/2025, 12pm – 2pm
+Agenda:
+
+Confirm submission and review any feedback.
+Discuss potential improvements for future iterations.
+Conduct a final team reflection session.
+6. Meeting Adjourned
+Meeting ended at 4pm.
+Notes prepared by Kian Vishnu Biswas.
+Reviewed by Ehtasham Afzal.

@@ -27,59 +27,54 @@
     
     <!-- Main Content -->
     <div class="dashboard-container">
-        <h1>Alert Page</h1>
+        <h1>historical data page</h1>
         <div class="stats-container">
-            <div class="stat-box">Alert Filter and Search Options 
-                <br> [Sensor ID:_] [Line Number:_] 
-                <br> [Alert Level: _Low _Medium _High] 
-                <br> [Date Range;_ - _] 
+            <div class="stat-box">Date range selector and filters 
+                <br> [Start date:_] [End date:_] 
+                <br> [Sensor ID: _] [Line Number:_]
+                <br> [Status: _Green _Amber _Red] 
                 <br> [Apply Filters] [Reset] Filters]
             </div>
-            <div class="stat-box">Recent Alerts & notifications panel 
-                <br> [high] sensor 002 - 195°c (exceed threshhold) 
-                <br> [MEDIUM] Sensor 005 - 175°c (Close to limit) 
-                <br> [LOW] Sensor 007 - 140°c (Stable)
+            <div class="stat-box">Historical Temperature Graph
+                <br> (Line graph - temperature
+                <br> trends over time) 
             </div>
         </div>
         <div class="content-area">
             
             <div class="table-box">
-                <h2>Alert Table (Sortable and Searchable)</h2>
+                <h2>Sensor Table (Sortable and Searchable)</h2>
                 <table>
                     <thead>
                         <tr>
                             <th>Sensor ID</th>
                             <th>Location</th>
-                            <th>Current Alert ID</th>
+                            <th>Current Temp</th>
                             <th>Status</th>
                             <th>Timestamp</th>
-                            <th>Level</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>001</td>
                             <td>Line 4</td>
-                            <td>1001</td>
-                            <td>Read</td>
+                            <td>120°C</td>
+                            <td><span class="status green">Green</span></td>
                             <td>2025-02-10</td>
-                            <td>HIGH</td>
                         </tr>
                         <tr>
                             <td>002</td>
                             <td>Line 5</td>
-                            <td>1002</td>
-                            <td>Read</td>
+                            <td>180°C</td>
+                            <td><span class="status red">Red</span></td>
                             <td>2025-02-11</td>
-                            <td>MEDIUM</td>
                         </tr>
                         <tr>
                             <td>003</td>
-                            <td>Line 6</td>
-                            <td>1003</td>
-                            <td>Unread</td>
+                            <td>Line 4</td>
+                            <td>150°C</td>
+                            <td><span class="status amber">Amber</span></td>
                             <td>2025-02-12</td>
-                            <td>LOW</td>
                         </tr>
                     </tbody>
                 </table>

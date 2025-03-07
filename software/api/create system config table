@@ -1,0 +1,12 @@
+CREATE TABLE system_config (
+  id SERIAL PRIMARY KEY,
+  parameter_name VARCHAR(255) UNIQUE NOT NULL,
+  value TEXT NOT NULL
+);
+
+-- Insert thresholds
+INSERT INTO system_config (parameter_name, value)
+VALUES
+  ('lower_threshold', '100'),
+  ('upper_threshold', '180'),
+  ('critical_threshold', '200');

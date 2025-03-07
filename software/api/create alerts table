@@ -1,0 +1,8 @@
+CREATE TABLE alerts (
+  id SERIAL PRIMARY KEY,
+  sensor_id VARCHAR(50),
+  timestamp TIMESTAMP NOT NULL,
+  alert_level VARCHAR(10),
+  description TEXT,
+  acknowledged BOOLEAN DEFAULT FALSE
+);

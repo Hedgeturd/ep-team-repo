@@ -1,0 +1,21 @@
+{
+  "name": "rakusens-dashboard-api",
+  "version": "1.0.0",
+  "description": "Simplified sensor data API (no user accounts)",
+  "main": "my-api/server.js",
+  "scripts": {
+    "start": "node my-api/server.js",
+    "dev": "nodemon my-api/server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "csv-parser": "^3.2.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "pg": "^8.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}

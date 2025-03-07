@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        /* CSS styles for the body */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: firebrick; /* Set background color */
+            text-align: center; /* Center-align text */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+        }
+
+        /* CSS styles for the form container */
+        .form-container {
+            display: flex; /* Display as flex container */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            height: 100vh; /* Full height of viewport */
+        }
+
+        /* CSS styles for the form */
+        .form {
+            background-color: white; /* Set background color */
+            padding: 20px; /* Add padding */
+            border-radius: 10px; /* Add border radius */
+            box-shadow: 0 0 10px black (132, 72, 72); /* Add box shadow */
+        }
+
+        /* CSS styles for the avatar image */
+        .avatar {
+            margin-bottom: 20px; /* Add margin to bottom */
+        }
+
+        /* CSS styles for the form container */
+        .container {
+            display: flex; /* Display as flex container */
+            flex-direction: column; /* Arrange items vertically */
+        }
+
+        /* CSS styles for input fields */
+        input[type="text"],
+        input[type="password"] {
+            width: 100%; /* Full width */
+            padding: 10px; /* Add padding */
+            margin: 8px 0; /* Add margin */
+            box-sizing: border-box; /* Include padding and border in width */
+            border: 1px solid #ccc; /* Add border */
+            border-radius: 5px; /* Add border radius */
+        }
+
+        /* CSS styles for buttons */
+        button {
+            background-color: blue; /* Set background color */
+            color: white; /* Set text color */
+            padding: 14px 20px; /* Add padding */
+            margin: 8px 0; /* Add margin */
+            border: none; /* Remove border */
+            border-radius: 4px; /* Add border radius */
+            cursor: pointer; /* Add cursor pointer */
+            width: 100%; /* Full width */
+            font-size: 16px; /* Set font size */
+        }
+
+        /* CSS styles for button hover state */
+        button:hover {
+            background-color: darkblue; /* Change background color on hover */
+        }
+
+        /* CSS styles for labels */
+        label {
+            margin-bottom: 10px; /* Add margin to bottom */
+            font-weight: bold; /* Set font weight */
+        }
+
+        /* CSS styles for checkboxes */
+        input[type="checkbox"] {
+            margin-right: 5px; /* Add margin to right */
+            cursor: pointer; /* Add cursor pointer */
+        }
+
+        /* CSS styles for the home page button */
+        .homePage{
+            width: 150px; /* Set width */
+            box-shadow: white 0 0 10px; /* Add box shadow */
+        }
+    </style>
+</head>
+<body>
+    <h1>Registration Form</h1>
+
+    <!-- Form Container -->
+    <div class="form-container">
+        <!-- Form -->
+        <div class="form">
+            <!-- Avatar -->
+            <div class="imgcontainer">
+                <img src="./img/registration.png" alt="register icon" height="100" width="100" class="avatar">
+            </div>
+          
+            <!-- Form Content -->
+            <div class="container">
+                <!-- Registration Form -->
+                <form action="connect.php" method="post">
+                    <label for="username">Create Username</label>
+                    <input type="text" placeholder="JohnSmith123" name="username" required>
+              
+                    <label for="password">Create Password</label>
+                    <input type="password" placeholder="********" name="password" required>
+                    
+                    <button type="submit">Create</button>
+                    
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember"> Remember me
+                    </label>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Home Page Button -->
+    <a href="./index.html">
+        <button class="homePage">Home Page</button>
+    </a>
+</body>
+</html>

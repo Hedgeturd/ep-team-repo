@@ -1,0 +1,117 @@
+﻿body {
+    padding: 0;
+    margin: 0;
+    background-image: url('../images/img23.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+.header {
+    padding: 25px;
+    background-color: #40408019;
+}
+.header h1 {
+    margin-left: 25px;
+    color: whitesmoke;
+    font: 700 40px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.login-block {
+    /*Block Dimensions*/
+    width: 90%;
+    max-width: 500px;
+    height: 90%;
+    max-height: 400px;
+
+    /*Block Colours*/
+    color: whitesmoke;
+    background-color: #0000;
+    background-image: linear-gradient(180deg, #FFFFFF1F 5%, #FFFFFF7F 90%);
+
+    /*Block Position*/
+    margin: 150px auto;
+
+    /*Block Display*/
+    border-radius: 50px;
+    padding: 50px;
+    text-align: center;
+}
+.login-block h1 {
+    margin-bottom: 50px;
+    font-size-adjust: 40;
+    font: 700 40px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.login-type, .login-type-rev {
+    /*Radio Colour*/
+    color: whitesmoke;
+    background-color: #0000;
+    background-image: linear-gradient(180deg, #FFFFFF1F 5%, #FFFFFF7F 90%);
+
+    /*Radio Display*/
+    border-radius: 6px 0px 0px 6px;
+    padding: 12px;
+    font-size: 20px;
+    cursor: pointer;
+    font-family: helvetica, arial, sans-serif;
+}
+.login-type-rev {
+    border-radius: 0px 6px 6px 0px;
+}
+.login-type:hover, .login-type-rev:hover {
+    background-color: #4040807F;
+    transition-duration: 0.25s;
+}
+
+.login-form {
+    /*Form Position*/
+    margin-top: 35px;
+}
+
+input[type="text"], input[type="password"] {
+    /*Input Dimensions*/
+    width: 75%;
+
+    /*Block Position*/
+    margin: 6px 0 6px;
+
+    /*Block Display*/
+    border: none;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 18px;
+}
+input[type="radio"] {
+    display: none;
+}
+input[type="radio"]:checked+label {
+    background-color: #404080BF;
+    transition-duration: 0.5s;
+}
+
+.submit-button {
+    /*Button Dimensions*/
+    width: 25%;
+
+    /*Button Position*/
+    margin: 4px 1px;
+
+    /*Button Display*/
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+    border-radius: 6px;
+    padding: 12px;
+
+    /*Button Colour*/
+    color: whitesmoke;
+    background-color: #0000;
+    background-image: linear-gradient(180deg, #FFFFFF1F 5%, #FFFFFF7F 90%);
+}
+.submit-button:hover {
+    background-color: rgba(64, 64, 128, 0.5);
+    transition-duration: 0.25s;
+}

@@ -1,0 +1,66 @@
+Team Meeting Minutes
+Meeting 1
+Project: Interactive Real-Time Visualisation Dashboard for Rakusens
+Date: 18/02/2025
+Time:12pm – 1pm (60 Minutes)
+1. Attendance
+Present: Kian Vishnu Biswas, Ehtasham Afzal, Mahad Nazar, Areesha Qazi, Lina Khalid Naciri
+Absent: Tayyib Khan, Adam Rasheed
+2. Agenda
+1.	Review SRS and SDD Documents
+2.	Planning for API structure and Backend structure
+4.	Next Steps & Action Items
+3. Meeting Discussions
+3.1 Tasks for API
+•	Discussed the structure and purpose of the Software Requirements Specification (SRS) and Software Design Document (SDD).
+•	Tasks:
+o	API Development:  Set up IDE for react.js and communicate with postgreSQL
+o	Backend Development: Work on User login and registration
+3.2 Planning for Documentation Structure
+•	Reviewed the existing coursework document for formatting guidelines.
+•	Outlined key sections and confirmed the required level of detail.
+3.3 Initial Website Design Draft Discussion
+o	Login Page (Username/Password Authentication)
+o	Admin Panel (User Management, System Logs)
+4. Action Items & Next Steps
+Task	Assigned To		
+Website Frontend development Ehtasham Afzal, Mahad Nazar, Lina Khalid Naciri
+Website Backend development Kian Vishnu Biswas
+Website Database developement Areesha Qazi, Tayyib Khan, Adam Rasheed
+UML Class diagram Ehtasham Afzal
+Use Case diagram Kian Vishnu Biswas	
+6. Meeting Adjourned
+•	Meeting ended at 1pm.
+•	Notes prepared by Kian Vishnu Biswas.
+•	Reviewed by Ehtasham Afzal.
+
+Meeting 2
+Project: Interactive Real-Time Visualisation Dashboard for Rakusens
+Date: 18/02/2025
+Time:2pm – 4pm (120 Minutes)
+1. Attendance
+Present: Kian Vishnu Biswas, Ehtasham Afzal, Mahad Nazar, Areesha Qazi, Lina Khalid Naciri, Tayyib Khan, Adam Rasheed
+2. Agenda
+1. Plan Fronted Development
+2. Plan Backend Development
+3. Create use case diagram and uml class diagram
+3.1 Frontend Development
+•	Design user login and registration page
+3.2 Backend Development
+•	Develop API using python, react.js and SQL
+3.3 Database Development
+•	Develop login and registration with sql and link to the html/javascript
+4. Action Items & Next Steps
+Same as earlier meeting
+5. Next Meeting Details
+•	Date & Time: 25/02/2025 12pm - 2pm
+•	Agenda: 
+1.	Review progress on use case diagram and uml class diagram.
+2.	Review progress on website development and database.
+6. Meeting Adjourned
+•	Meeting ended at 4pm.
+•	Notes prepared by Kian Vishnu Biswas.
+•	Reviewed by Ehtasham Afzal.
+
+
+

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="eptest1.css">
+    <script src="https://kit.fontawesome.com/7135b02251.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">
+            <img src="Rakusens_of_Yorkshire_Logo.png" alt="Logo" class="logo-img">
+        </div>
+        <ul id="menuList">
+            <li><a href="eptest1.html">Home</a></li>
+            <li><a href="EpHisTest1.html">Historical Data</a></li>
+            <li><a href="">Alerts</a></li>
+            <li><a href="">Settings</a></li>
+            <li><a href="">Sign Out</a></li>
+        </ul>
+        <div class="menu-icon">
+            <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="dashboard-container">
+        <h1>Main Dashboard Area</h1>
+        <div class="stats-container">
+            <div class="stat-box">Total Sensors Active <br> [Live Count]</div>
+            <div class="stat-box">Alerts Triggered <br> [Active Alerts]</div>
+        </div>
+        <div class="content-area">
+            <div class="graph-box">Real-Time Temperature Graph <br> (Line graph - Sensor data updating in real-time)</div>
+            <div class="table-box">
+                <h2>Sensor Table (Sortable and Searchable)</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sensor ID</th>
+                            <th>Location</th>
+                            <th>Current Temp</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>Line 4</td>
+                            <td>120°C</td>
+                            <td><span class="status green">Green</span></td>
+                        </tr>
+                        <tr>
+                            <td>002</td>
+                            <td>Line 5</td>
+                            <td>180°C</td>
+                            <td><span class="status red">Red</span></td>
+                        </tr>
+                        <tr>
+                            <td>003</td>
+                            <td>Line 4</td>
+                            <td>150°C</td>
+                            <td><span class="status amber">Amber</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Rakusen's - Real-Time Dashboard</p>
+    </footer>
+    
+    <script>
+        let menuList = document.getElementById("menuList");
+        menuList.style.maxHeight = "0px";
+
+        function toggleMenu(){
+            if(menuList.style.maxHeight === "0px") {
+                menuList.style.maxHeight = "300px";
+            } else {
+                menuList.style.maxHeight = "0px";
+            }
+        }
+    </script>
+</body>
+</html>

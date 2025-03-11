@@ -1,20 +1,22 @@
 # Enterprise Pro Team Sandbox Repository
 
-# ⚠️ Warning ⚠️
-## Repository Rules
-Please make sure you are uploading to the Sandbox branch.<br>
-You can confirm this by checking the Header of this text for the word "Sandbox".<br>
-You can also confirm by checking the top left of the Repository page and looking for the word "Sandbox".<br>
-If you cannot see the word "Sandbox" contact me!
+> [!WARNING]
+> ## Repository Rules
+> Please make sure you are uploading to the Sandbox branch.<br>
+> You can confirm this by checking the Header of this text for the word "Sandbox".<br>
+> You can also confirm by checking the top left of the Repository page and looking for the word "Sandbox".<br>
+> If you cannot see the word "Sandbox" contact me!
 
-## Code Location Change
-I have copied all the code related folders to a folder named "software" to meet the specification.<br>
-All of the original uploads and commits are within their corresponding folder names!
+> [!IMPORTANT]
+> ## Code Location Change
+> I have copied all the code related folders to a folder named "software" to meet the specification.<br>
+> All of the original uploads and commits are within their corresponding folder names!
 
-## Pull Requests
-To commit your work to the main branch, you can submit a pull request!<br>
-Using pull requests, I can review the word and we can ensure nothing we submit is broken! :D<br>
-If you are unsure on how to submit a pull request, contact me and I'll run you through it.
+> [!TIP]
+> ## Pull Requests
+> To commit your work to the main branch, you can submit a pull request!<br>
+> Using pull requests, I can review the word and we can ensure nothing we submit is broken! :D<br>
+> If you are unsure on how to submit a pull request, contact me and I'll run you through it.
 
 # Interactive Real-Time Visualisation Dashboard for Rakusens
 

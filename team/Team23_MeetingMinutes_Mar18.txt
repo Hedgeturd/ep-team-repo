@@ -1,0 +1,82 @@
+Meeting 1
+Project: Interactive Real-Time Visualisation Dashboard for RakusensDate: 18/03/2025Time: 12pm – 1pm (60 Minutes)
+
+1. AttendancePresent: Kian Vishnu Biswas, Ehtasham Afzal, Mahad Nazar, Areesha Qazi, Lina Khalid Naciri, Tayyib Khan, Adam Rasheed
+
+2. Agenda
+
+Improve code structure and optimise performance.
+
+Integrate SQL database with the front-end.
+
+Develop a secure login and registration system.
+
+3. Meeting Discussions3.1 Code Optimisation
+
+Refactor backend and frontend code for better maintainability.
+
+Improve API response times and database queries.3.2 SQL & Frontend Integration
+
+Connect the frontend login system with the SQL database.
+
+Ensure seamless communication between the backend and database.3.3 Secure User Authentication
+
+Implement encryption for passwords and user data security.
+
+Develop user roles and access control mechanisms.
+
+4. Action Items & Next Steps
+
+Finalise secure login and registration functionality.
+
+Test the integration of SQL with frontend authentication.
+
+Conduct security checks to ensure data protection.
+
+5. Next Meeting DetailsDate & Time: 18/03/2025, 2pm – 4pmAgenda:
+
+Test and refine the login and registration system.
+
+Implement security features to prevent vulnerabilities.
+
+Finalise user role management and database security.
+
+6. Meeting AdjournedMeeting ended at 1pm.Notes prepared by Kian Vishnu Biswas.Reviewed by Ehtasham Afzal.
+
+Meeting 2Project: Interactive Real-Time Visualisation Dashboard for RakusensDate: 18/03/2025Time: 2pm – 4pm (120 Minutes)
+
+1. AttendancePresent: Kian Vishnu Biswas, Ehtasham Afzal, Mahad Nazar, Areesha Qazi, Lina Khalid Naciri, Tayyib Khan, Adam Rasheed
+
+2. Agenda
+
+Test and refine login and registration functionality.
+
+Strengthen security measures for user authentication.
+
+Ensure smooth database and frontend integration.
+
+3. Meeting Discussions3.1 Testing User Authentication
+
+Validate login and registration flow.
+
+Identify and fix any authentication bugs.3.2 Security Enhancements
+
+Implement SQL injection protection and data encryption.
+
+Add measures to prevent brute-force login attempts.3.3 Finalising User Management
+
+Ensure user roles (Operator, Admin) function correctly.
+
+Verify that user creation, updates, and deletion work as expected.
+
+4. Action Items & Next Steps
+
+Complete final security testing of login and registration.
+
+Ensure data protection compliance with best practices.
+
+Conduct user testing to verify smooth functionality.
+
+5. Next Meeting DetailsThis is the final scheduled meeting unless further review sessions are required.
+
+6. Meeting AdjournedMeeting ended at 4pm.Notes prepared by Kian Vishnu Biswas.Reviewed by Ehtasham Afzal.

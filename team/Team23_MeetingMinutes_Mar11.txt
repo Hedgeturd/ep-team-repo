@@ -1,0 +1,86 @@
+Meeting 1
+Project: Interactive Real-Time Visualisation Dashboard for RakusensDate: 11/03/2025Time: 12pm – 1pm (60 Minutes)
+
+1. AttendancePresent: Kian Vishnu Biswas, Ehtasham Afzal, Mahad Nazar, Areesha Qazi, Lina Khalid Naciri, Tayyib Khan, Adam Rasheed
+
+2. Agenda
+
+Confirm successful upload and review any feedback.
+
+Discuss next steps for potential improvements.
+
+Reflect on lessons learned and team contributions.
+
+3. Meeting Discussions3.1 Submission Review
+
+Ensure all project files are correctly uploaded.
+
+Verify that all documentation is formatted properly.3.2 Feedback Assessment
+
+Review any initial feedback received on the submission.
+
+Identify any changes required for future iterations.3.3 Team Reflection
+
+Discuss challenges faced and solutions implemented.
+
+Evaluate team performance and areas of improvement.
+
+4. Action Items & Next Steps
+
+Note down any required improvements for future updates.
+
+Prepare a report on lessons learned and team contributions.
+
+5. Next Meeting DetailsDate & Time: 18/03/2025, 12pm – 2pmAgenda:
+
+Plan for future iterations based on feedback.
+
+Assign responsibilities for potential improvements.
+
+Outline new goals for upcoming work.
+
+6. Meeting AdjournedMeeting ended at 1pm.Notes prepared by Kian Vishnu Biswas.Reviewed by Ehtasham Afzal.
+
+Meeting 2Project: Interactive Real-Time Visualisation Dashboard for RakusensDate: 11/03/2025Time: 2pm – 4pm (120 Minutes)
+
+1. AttendancePresent: Kian Vishnu Biswas, Ehtasham Afzal, Mahad Nazar, Areesha Qazi, Lina Khalid Naciri, Tayyib Khan, Adam Rasheed
+
+2. Agenda
+
+Plan improvements for the next phase.
+
+Address any outstanding issues.
+
+Discuss final wrap-up tasks for documentation.
+
+3. Meeting Discussions3.1 Planning Future Improvements
+
+Identify enhancements based on initial feedback.
+
+Assign responsibilities for development updates.3.2 Addressing Issues
+
+Discuss any unresolved bugs or concerns.
+
+Ensure all major issues are logged for future resolution.3.3 Documentation Wrap-Up
+
+Ensure final documentation updates are completed.
+
+Check for consistency across all submitted materials.
+
+4. Action Items & Next Steps
+
+Begin work on any requested improvements.
+
+Finalise documentation for archival.
+
+Prepare closing remarks for project submission.
+
+5. Next Meeting DetailsDate & Time: 18/03/2025, 12pm – 2pmAgenda:
+
+Review progress on improvements.
+
+Conduct a final quality check.
+
+Final reflections and project closure.
+
+6. Meeting AdjournedMeeting ended at 4pm.Notes prepared by Kian Vishnu Biswas.Reviewed by Ehtasham Afzal

@@ -3,9 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Rakusen's Dashboard</title>
-        <link rel="stylesheet" href="styles/cmn.css">
-        <link rel="stylesheet" href="styles/dash.css">
+        <title>Historical Data</title>
+        <link rel="stylesheet" href="../styles/cmn.css">
+        <link rel="stylesheet" href="styles/history.css">
         <script src="https://kit.fontawesome.com/7135b02251.js" crossorigin="anonymous"></script>
     </head>
 
@@ -27,16 +27,23 @@
             </div>
         </nav>
 
-
         <!-- Main Content -->
         <div class="dashboard-container">
-            <h1>Dashboard</h1>
+            <h1>historical data page</h1>
             <div class="stats-container">
-                <div class="stat-box">Total Sensors Active <br> [Live Count]</div>
-                <div class="stat-box">Alerts Triggered <br> [Active Alerts]</div>
+                <div class="stat-box">Date range selector and filters
+                    <br> [Start date:_] [End date:_]
+                    <br> [Sensor ID: _] [Line Number:_]
+                    <br> [Status: _Green _Amber _Red]
+                    <br> [Apply Filters] [Reset] Filters]
+                </div>
+                <div class="stat-box">Historical Temperature Graph
+                    <br> (Line graph - temperature
+                    <br> trends over time)
+                </div>
             </div>
             <div class="content-area">
-                <div class="graph-box">Real-Time Temperature Graph <br> (Line graph - Sensor data updating in real-time)</div>
+
                 <div class="table-box">
                     <h2>Sensor Table (Sortable and Searchable)</h2>
                     <table>
@@ -46,6 +53,7 @@
                                 <th>Location</th>
                                 <th>Current Temp</th>
                                 <th>Status</th>
+                                <th>Timestamp</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -54,18 +62,21 @@
                                 <td>Line 4</td>
                                 <td>120°C</td>
                                 <td><span class="status green">Green</span></td>
+                                <td>2025-02-10</td>
                             </tr>
                             <tr>
                                 <td>002</td>
                                 <td>Line 5</td>
                                 <td>180°C</td>
                                 <td><span class="status red">Red</span></td>
+                                <td>2025-02-11</td>
                             </tr>
                             <tr>
                                 <td>003</td>
                                 <td>Line 4</td>
                                 <td>150°C</td>
                                 <td><span class="status amber">Amber</span></td>
+                                <td>2025-02-12</td>
                             </tr>
                         </tbody>
                     </table>

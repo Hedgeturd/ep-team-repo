@@ -3,9 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Rakusen's Dashboard</title>
-        <link rel="stylesheet" href="styles/cmn.css">
-        <link rel="stylesheet" href="styles/dash.css">
+        <title>Alerts</title>
+        <link rel="stylesheet" href="../styles/cmn.css">
+        <link rel="stylesheet" href="styles/history.css">
         <script src="https://kit.fontawesome.com/7135b02251.js" crossorigin="anonymous"></script>
     </head>
 
@@ -27,45 +27,61 @@
             </div>
         </nav>
 
-
         <!-- Main Content -->
         <div class="dashboard-container">
-            <h1>Dashboard</h1>
+            <h1>Alerts</h1>
             <div class="stats-container">
-                <div class="stat-box">Total Sensors Active <br> [Live Count]</div>
-                <div class="stat-box">Alerts Triggered <br> [Active Alerts]</div>
+                <div class="stat-box">Alert Filter and Search Options
+                    <br> [Sensor ID:_] [Line Number:_]
+                    <br> [Alert Level: _Low _Medium _High]
+                    <br> [Date Range;_ - _]
+                    <br> [Apply Filters] [Reset] Filters]
+                </div>
+                <div class="stat-box">Recent Alerts & notifications panel
+                    <br> [HIGH] sensor 002 - 195°c (exceed threshold)
+                    <br> [MEDIUM] Sensor 005 - 175°c (Close to limit)
+                    <br> [LOW] Sensor 007 - 140°c (Stable)
+                </div>
             </div>
             <div class="content-area">
-                <div class="graph-box">Real-Time Temperature Graph <br> (Line graph - Sensor data updating in real-time)</div>
+
                 <div class="table-box">
-                    <h2>Sensor Table (Sortable and Searchable)</h2>
+                    <h2>Alert Table (Sortable and Searchable)</h2>
                     <table>
                         <thead>
                             <tr>
                                 <th>Sensor ID</th>
                                 <th>Location</th>
-                                <th>Current Temp</th>
+                                <th>Current Alert ID</th>
                                 <th>Status</th>
+                                <th>Timestamp</th>
+                                <th>Level</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>001</td>
                                 <td>Line 4</td>
-                                <td>120°C</td>
-                                <td><span class="status green">Green</span></td>
+                                <td>1001</td>
+                                <td>Read</td>
+                                <td>2025-02-10</td>
+                                <td>HIGH</td>
                             </tr>
                             <tr>
                                 <td>002</td>
                                 <td>Line 5</td>
-                                <td>180°C</td>
-                                <td><span class="status red">Red</span></td>
+                                <td>1002</td>
+                                <td>Read</td>
+                                <td>2025-02-11</td>
+                                <td>MEDIUM</td>
                             </tr>
                             <tr>
                                 <td>003</td>
-                                <td>Line 4</td>
-                                <td>150°C</td>
-                                <td><span class="status amber">Amber</span></td>
+                                <td>Line 6</td>
+                                <td>1003</td>
+                                <td>Unread</td>
+                                <td>2025-02-12</td>
+                                <td>LOW</td>
                             </tr>
                         </tbody>
                     </table>

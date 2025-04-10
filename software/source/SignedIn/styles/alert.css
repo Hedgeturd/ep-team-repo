@@ -1,0 +1,98 @@
+/* Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background: white;
+    text-align: center;
+}
+
+/* Navigation Bar */
+nav {
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #004274;
+    height: 70px;
+}
+
+.logo-img {
+    height: 50px;
+    width: auto;
+}
+
+nav ul {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+nav ul li {
+    list-style-type: none;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.menu-icon {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-icon i {
+    color: white;
+    font-size: 30px;
+    display: block;
+}
+
+/* Dashboard Layout */
+.dashboard-container {
+    padding: 20px;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.stat-box {
+    border: 2px solid black;
+    padding: 20px;
+    width: 500px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.content-area {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.graph-box, .table-box {
+    border: 2px solid black;
+    padding: 20px;
+    width: 600px;
+    min-height: 200px;
+}
+
+/* Footer */
+footer {
+    margin-top: 40px;
+    padding: 10px;
+    background: #004274;
+    color: white;
+}

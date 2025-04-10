@@ -1,0 +1,99 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+/* Dashboard Layout */
+.dashboard-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+/* Button and Form */
+.setting-box {
+    /*text-align: center;*/
+    font-size: larger;
+    line-height: 1.8;
+    font-weight:bold;
+    /*padding: 20px;*/
+    border: 2px solid black;
+    width: 400px;
+    /*padding: 20px;*/
+    /*display: flex;
+    flex-direction: column;*/
+}
+
+.stat-box {
+    background-color: white;
+    border: 2px solid black;
+    padding: 20px;
+    width: 500px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/*button {
+  background-color: #004274;
+  border-radius: 25px;
+  color: white;
+  padding: 15px 32px;
+  !*text-align: center;*!
+  text-decoration: none;
+  !*display: inline-block;*!
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+}*/
+
+/*M's Submit Button*/
+.m_button {
+    border: 2px solid black;
+    font-weight: bold;
+
+    /*Button Dimensions*/
+    width: 25%;
+
+    /*Button Position*/
+    /*margin: 4px 1px;*/
+
+    /*Button Display*/
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    padding: 12px;
+
+    /*Button Colour*/
+    background-color: #FFFFFF7F;
+    /*background-image: linear-gradient(180deg, #FFFFFF1F 5%, #FFFFFF7F 90%);*/
+}
+.m_button:hover {
+    background-color: rgba(64, 64, 128, 0.5);
+    transition-duration: 0.25s;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+    /*Input Dimensions*/
+    width: 75%;
+
+    /*Block Position*/
+    margin: 6px 0 6px;
+
+    /*Block Display*/
+    border: 2px solid black;
+    font-weight: bold;
+    padding: 10px;
+    font-size: 18px;
+}
+
+select {
+    /*Block Position*/
+    margin: 6px 0 6px;
+
+    /*Block Display*/
+    border: 2px solid black;
+    font-weight: bold;
+    padding: 10px;
+    font-size: 18px;
+}

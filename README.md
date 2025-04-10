@@ -4,7 +4,7 @@
 > ## Repository Rules
 > All Website Project related code goes into "Software>Source".<br>
 > The Root of "Source" is where all "Login/Register" related items will go.<br>
-> The "SignedIn" Directory is where all of the "Dashboard" related itmes will go.<br>
+> The "SignedIn" Directory is where all of the "Dashboard" related items will go.<br>
 
 > [!IMPORTANT]
 > ## Code Location Change

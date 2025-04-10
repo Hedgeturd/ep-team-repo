@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="scripts/login.js"></script>
+    <link rel="stylesheet" href="styles/cmn.css">
+    <link rel="stylesheet" href="styles/login.css">
+    <script src="https://kit.fontawesome.com/7135b02251.js" crossorigin="anonymous"></script>
+    <title>Rakusen's Login</title>
+  </head>
+
+  <body>
+    <!-- Navigation Bar -->
+    <nav>
+      <div class="logo">
+        <img src="./images/Logo.png" alt="Logo" class="logo-img">
+      </div>
+      <div class="menu-icon">
+        <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
+      </div>
+    </nav>
+
+    <!--Login Form-->
+    <div style="padding: 20px;">
+      <h1>Login</h1>
+
+      <div class="stats-container">
+
+        <div class="stat-box">
+
+          <!--Login Type Selector-->
+          <div style="padding: 10px;">
+            <input type="radio" id="html" name="fav_language" checked="checked" onclick="reg = 0">
+            <label class="login-type" for="html">Log In</label>
+            <input type="radio" id="css" name="fav_language" onclick="location.href='register.php';">
+            <label class="login-type" for="css">Sign Up</label>
+          </div>
+
+          <br>
+
+          <!--Username and Password Input-->
+          <div style="padding: 10px;">
+            <form name="loginForm" action="scripts/login.php">
+              <input type="text" id="user" name="user" placeholder="Username"><br>
+              <input type="password" id="pass" name="pass" placeholder="Password"><br><br>
+              <input class="submit-button" type="submit" value="Submit">
+            </form>
+          </div>
+
+          <br>
+
+          <div>
+            <a href="forgot.html">Forgot your password?</a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Rakusen's - Real-Time Dashboard</p>
+    </footer>
+  </body>
+</html>

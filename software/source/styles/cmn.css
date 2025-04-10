@@ -1,0 +1,167 @@
+/* Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background: white;
+    text-align: center;
+}
+
+/* Navigation Bar */
+nav {
+    /*top: 0;*/
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #004274;
+    height: 70px;
+}
+
+.logo-img {
+    height: 50px;
+    width: auto;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    /*padding: 10px;*/
+    text-decoration: none;
+}
+
+/*nav li a:hover {
+    background: #00213a;
+}*/
+
+.menu-icon {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-icon i {
+    color: white;
+    font-size: 30px;
+    display: block;
+}
+
+@media (max-width: 600px) {
+    nav ul {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        text-align: center;
+        background: #004274;
+        gap: 0;
+        overflow: hidden;
+    }
+    nav ul li {
+        padding: 20px;
+    }
+    .menu-icon {
+        display: block;
+    }
+    #menuList {
+        transition: all 0.5s;
+    }
+}
+
+/*Dark Mode!!! */
+/* Footer */
+footer {
+    /*fix for footer vertical pos*/
+    /*position: relative;*/
+    position: fixed;
+    bottom:0;
+    width: 100%;
+    padding: 10px 20px;
+    background: #004274;
+    color: white;
+    text-align: center; /* Keeps the text centered */
+}
+
+.dark-toggle {
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+}
+
+.dark-toggle button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode nav {
+    background-color: #1e1e1e;
+}
+
+body.dark-mode footer {
+    background-color: #1e1e1e;
+}
+
+body.dark-mode nav li a {
+    color: #e0e0e0;
+}
+
+body.dark-mode .stat-box,
+body.dark-mode .graph-box,
+body.dark-mode .table-box {
+    border-color: #888;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+body.dark-mode th {
+    background-color: #333;
+}
+
+body.dark-mode .status.green {
+    background-color: #2e7d32;
+}
+
+body.dark-mode .status.red {
+    background-color: #c62828;
+}
+
+body.dark-mode .status.amber {
+    background-color: #f9a825;
+}
+
+.dark-toggle button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.dark-toggle {
+    margin-left: 20px;
+}

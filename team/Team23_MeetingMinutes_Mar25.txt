@@ -1,0 +1,40 @@
+Meeting 1
+Project: Interactive Real-Time Visualisation Dashboard for RakusensDate: 25/03/2025 Time: 12pm – 1pm (60 Minutes)
+
+1. Attendance
+Present: Kian Vishnu Biswas, Ehtasham Afzal, Mahad Nazar, Areesha Qazi, Lina Khalid Naciri, Tayyib Khan, Adam Rasheed
+
+2. Agenda
+Assign Tasks
+3. Meeting Discussions
+Adam and Tayyib where chosen to integrate the machine learning for the alerts page.
+Mahad and Kian working on graphical visualisations of data
+Ehtasham, Areesha, Lina working on registration and login pages, as well as admin view
+4. Action Items & Next Steps
+Simulate real-time data and visualise on the main dashboard.
+Modify SQL Database
+Integrate Machine Learning
+5. Next Meeting Details 
+Date & Time: 18/03/2025, 2pm – 4pm
+6. Meeting AdjournedMeeting ended at 1pm.Notes prepared by Kian Vishnu Biswas.Reviewed by Ehtasham Afzal.
+
+Meeting 2
+Project: Interactive Real-Time Visualisation Dashboard for RakusensDate: 18/03/2025Time: 2pm – 4pm (120 Minutes)
+
+1. Attendance
+Present: Kian Vishnu Biswas, Ehtasham Afzal, Mahad Nazar, Areesha Qazi, Lina Khalid Naciri, Tayyib Khan, Adam Rasheed
+
+2. Agenda
+
+Start working on the assigned tasks from the earlier meeting.
+
+3. Meeting Discussions3.1 Testing User Authentication
+Everyone was walked through the login and registration process.
+Admin page was discussed and designed as well as the plotly graphs.
+
+4. Action Items & Next Steps
+Complete final security testing of login and registration.
+
+5. Next Meeting Details
+1/04/2025 12pm – 1pm (60 minutes)
+6. Meeting AdjournedMeeting ended at 4pm.Notes prepared by Kian Vishnu Biswas.Reviewed by Ehtasham Afzal.

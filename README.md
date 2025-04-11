@@ -1,4 +1,4 @@
-# Enterprise Pro Team Sandbox Repository
+# Enterprise Pro Team23 Repository for Rakusens Interactive Real-Time Dashboard
 
 > [!WARNING]
 > ## Repository Rules

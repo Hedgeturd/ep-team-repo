@@ -1,0 +1,47 @@
+Meeting 1
+Project: Interactive Real-Time Visualisation Dashboard for Rakusens
+Date: 08/04/2025 Time: 2pm-4pm
+
+1. Attendance 
+Present: Kian Vishnu Biswas, Ehtasham Afzal, Mahad Nazar, Areesha Qazi, Lina Khalid Naciri, Tayyib Khan, Adam Rasheed
+
+2. Agenda 
+Decide what needs to completed and what needs to be refined.
+
+3.Meeting Discussings
+Ehtasham, Areesha, Lina finalise functionality and complete features
+Kian and Mahad working on finishing Live sensors
+Adam and Tayyib completing the Machine learning tasks
+
+4. action Item and Steps
+preparation to finish tasks and present for next meeting
+
+5. Next Meeting Details
+Date & Time: 10/04/2025
+
+6. Meeting Adjourned
+Meeting ended at 4pm. notes prepared by Ehtasham Afzal, Reviewed by Kian Vishu Biswas
+
+
+Meeting 2
+Project: Interactive Real-Time Visualisation Dashboard for Rakusens
+Date: 10/04/2025 Time: 11am-1pm
+
+1. Attendance
+Present: Kian Vishnu Biswas, Ehtasham Afzal, Mahad Nazar, Areesha Qazi, Lina Khalid Naciri, Tayyib Khan, Adam Rasheed
+
+2. Agenda
+Final review on project, Ready to upload 
+
+3. Meeting Discussion 
+All work has been finalised and presented amongst teams.
+ensured that everything is working together and uploaded.
+
+4. Action Items and Next Steps
+Prepare to present to client
+
+5. Next Meeting details
+15/04/2025 3:20PM
+
+6. meeting Adjourned 
+Meeting ended at 1pm. Noted by Ehtasham Afzal, Reviewed by Kian Vishnu Biswas

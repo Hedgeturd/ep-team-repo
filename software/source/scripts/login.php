@@ -5,6 +5,16 @@
     $password = $_GET['pass'];
     $hashed_password = password_hash($password, PASSWORD_BCRYPT, ['cost' => 10]);
 
+    $sql = "SELECT * FROM requests WHERE user_name = '$user'";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+
+    if (isset($result) && $row['type'] == 'forgot') {
+        if (password_verify($password, $row['password'])) {
+            header("Location: ../newpass.php");
+        }
+    }
+
     $sql = "SELECT * FROM users WHERE user_name = '$user'";
     $result = $conn->query($sql);
 

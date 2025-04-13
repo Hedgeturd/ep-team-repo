@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿<?php
+    $_SESSION['err'] = $email = $user = "";
+?>
+
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -9,77 +13,7 @@
   </head>
 
   <body>
-    <?php
-        session_start();
-        require_once('scripts/check.php');
-        require_once('scripts/dbconnect.php');
-
-        $email = $user = $password = "";
-        $emailerr = "";
-        $bname = $bemail = false;
-
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $email = trim($_POST['email']);
-            $username = trim($_POST['user']);
-            $password = trim($_POST['pass']);
-            $hashed_password = password_hash($password, PASSWORD_BCRYPT, ['cost' => 10]);
-            $role = isset($_POST['role']) ? $_POST['role'] : 'user'; // Default role is 'user'
-
-            // Validate email
-            if (verify_email($email)) {
-                // Check duplicate emails in database
-                if (dupe_email($conn, $email, "requests") && dupe_email($conn, $email, "users")) {
-                    $bemail = true;
-                }
-                else  {
-                    $emailerr = "Email Address Already in Use.";
-                    $bemail = false;
-                }
-            }
-            else {
-                $emailerr = "Invalid Email Address.";
-                $bemail = false;
-            }
-
-            // Username Validate
-            if (preg_match("/^\w+$/",$user)) {
-                if (dupe_name($conn, $user, "requests") && dupe_name($conn, $user, "users")) {
-                    $bname = true;
-                }
-                else  {
-                    $emailerr = "Username Already in Use.";
-                    $bname = false;
-                }
-            }
-            else {
-                $emailerr = "Invalid Username.<br><br>Please use Lowercase and Uppercase Letters,<br>Numbers and Underscores.";
-                $bname = false;
-            }
-
-            // If no errors, add credentials to requests db
-            if ($bname && $bemail) {
-                $sql = "INSERT INTO requests (email, password, role, user_name) VALUES (?, ?, ?, ?)";
-                $result = $conn->prepare($sql);
-
-                if ($result) {
-                $result->bind_param("ssss", $email, $hashed_password, $role, $user);
-
-                if ($result->execute()) {
-                    $emailerr = "User Registered Successfully!<br><br>Please wait for a Confirmation Email<br>from our Admins!";
-                } else {
-                    echo '<div class="error">Error executing query: ' . htmlspecialchars($result->error) . '</div>';
-                }
-
-                $result->close();
-                } else {
-                    echo '<div class="error">Error preparing statement: ' . htmlspecialchars($conn->error) . '</div>';
-                }
-
-                $conn->close();
-            }
-        }
-    ?>
-
+      <?php $_SESSION['err'] = ""; ?>
     <!-- Navigation Bar -->
     <nav>
       <div class="logo">
@@ -115,8 +49,15 @@
           </div>
 
             <br>
+            <?php
+                require_once('scripts/register.php');
 
-          <?php echo "$emailerr";?>
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    sendregister_req($_POST);
+                }
+            ?>
+
+          <?php echo $_SESSION['err']; ?>
         </div>
       </div>
 

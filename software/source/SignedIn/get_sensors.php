@@ -12,7 +12,7 @@ if ($result->num_rows > 0) {
         echo "<td>" . htmlspecialchars($row['sensor_name']) . "</td>";
         echo "<td>" . htmlspecialchars($row['location']) . "</td>";
         echo "<td>" . htmlspecialchars($row['temperature']) . "°C</td>";
-        echo "<td>" . (($row['temperature'] > 50) ? "⚠️ Alert" : "✅ OK") . "</td>";
+        echo "<td>" . (($row['temperature'] > 100) ? "⚠️ Alert" : "✅ OK") . "</td>";
         echo "<td>" . htmlspecialchars($row['updated_at']) . "</td>";
         echo "</tr>";
     }

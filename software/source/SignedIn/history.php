@@ -7,6 +7,13 @@
     $user = $_SESSION['username'];
     $email = $_SESSION['email'];
     $role = $_SESSION['role'];
+    $result = "";
+
+    require_once("scripts/query.php");
+    require_once("scripts/table.php");
+
+    $filteredRows = [];
+    $line = "";
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +41,7 @@
                 <li><a href="settings.php">Settings</a></li>
                 <?php
                     if ($role == "admin") {
-                        echo '<li><a href="admin.html">Manage</a></li>';
+                        echo '<li><a href="admin.php">Manage</a></li>';
                     }
                 ?>
                 <li><a href="../">Sign Out</a></li>
@@ -48,28 +55,29 @@
         <div class="dashboard-container">
             <h1>Historical Data</h1>
             <div class="stats-container">
+                <!-- Data Filters -->
                 <div class="stat-box">Date range selector and filters
-                    <form method="POST">
+                    <form name="historyfilters" method="POST">
                         <label for="start">Start Date:</label>
-                        <input type="date" name="start">
+                        <input type="datetime-local" name="start" value="<?= isset($_POST['start']) ? $_POST['start'] : '' ?>"><br>
                         <label for="end">End Date:</label>
-                        <input type="date" name="end">
+                        <input type="datetime-local" name="end" value="<?= isset($_POST['end']) ? $_POST['end'] : '' ?>">
                         <br>
                         <label for="sensor">Sensor ID:</label>
-                        <input type="number" name="sensor">
+                        <input type="number" name="sensor" value="<?= isset($_POST['sensor']) ? $_POST['sensor'] : '1' ?>">
                         <label for="line">Line Number:</label>
-                        <input type="number" name="line">
+                        <input type="number" name="line" value="<?= isset($_POST['line']) ? $_POST['line'] : '4' ?>">
                         <br>
                         Status:
-                        <input type="checkbox" id="green" name="green" value="G">
+                        <input type="checkbox" id="green" name="green" value="G" <?= !isset($_POST['apply']) || isset($_POST['green']) ? 'checked' : '' ?>>
                         <label for="green">Green</label>
-                        <input type="checkbox" id="amber" name="amber" value="A">
+                        <input type="checkbox" id="amber" name="amber" value="A" <?= !isset($_POST['apply']) || isset($_POST['amber']) ? 'checked' : '' ?>>
                         <label for="amber">Amber</label>
-                        <input type="checkbox" id="red" name="red" value="R">
+                        <input type="checkbox" id="red" name="red" value="R" <?= !isset($_POST['apply']) || isset($_POST['red']) ? 'checked' : '' ?>>
                         <label for="red">Red</label>
                         <br>
-                        <button type="submit" name="apply">Apply</button>
-                        <button type="reset" name="reset">Reset</button>
+                        <button type="submit" name="apply">Apply Filters</button>
+                        <button type="reset" name="reset">Reset Filters</button>
                     </form>
                 </div>
                 <div class="stat-box">Historical Temperature Graph
@@ -81,33 +89,81 @@
 
                 <div class="table-box">
                     <?php
+                        /* if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['apply'])) {
+                            historyfilters($_POST);
+                        } */
                         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['apply'])) {
-                            $startDate = $_POST['start'] ?? null;
-                            $endDate = $_POST['end'] ?? null;
-                            $sensor = "r0" . $_POST['sensor'] ?? null;
-                            $line = "line" . $_POST['line'] ?? null;
-                            $status = $_POST['status'] ?? [];
 
-                            // Example usage
-
-                            // Now you can use these variables however you want (e.g. DB query, filtering, etc.)
-
-                            if (empty($_POST['line']) || empty($_POST['sensor'])) {
-                                //
+                            if (!empty($_POST['line']) && !empty($_POST['sensor'])) {
+                                $sensor = "r0" . $_POST['sensor'];
+                                $line = "line" . $_POST['line'];
                             }
-                            else {
-                                require_once('../scripts/dbconnect.php');
-                                $sql = "SELECT timestamp, $sensor FROM $line LIMIT 8";
-                                try {
-                                    $result = $conn->query($sql);
+
+                            // Process Status Checkboxes (Green, Amber, Red)
+                            $statuses = [];
+                            if (isset($_POST['green'])) $statuses[] = 'G';  // Green
+                            if (isset($_POST['amber'])) $statuses[] = 'A';  // Amber
+                            if (isset($_POST['red'])) $statuses[] = 'R';    // Red
+
+                            require_once('../scripts/dbconnect.php');
+
+                            $sql = "SELECT timestamp, $sensor FROM $line ORDER BY timestamp DESC";
+                            $params = [];
+                            $types = "";
+
+                            if (!empty($_POST['start']) && !empty($_POST['end'])) {
+                                $startDate = date('Y-m-d H:i:s', strtotime($_POST['start']));
+                                $endDate = date('Y-m-d H:i:s', strtotime($_POST['end']));
+
+                                $sql .= " WHERE timestamp BETWEEN ? AND ?";
+                                $params = [$startDate, $endDate];
+                                $types = "ss";
+                            }
+
+                            $sql .= " LIMIT 100"; // optional: adjust limit
+
+                            $stmt = $conn->prepare($sql);
+                            if (!empty($params)) {
+                                $stmt->bind_param($types, ...$params);
+                            }
+                            $stmt->execute();
+
+                            try {
+                                //$result = $conn->query($sql);
+                                $result = $stmt->get_result();
+
+                                // Filter Results Based on Selected Statuses
+                                //$filteredRows = [];
+
+                                while ($row = $result->fetch_assoc()) {
+                                    $value = $row[$sensor];
+
+                                    // Filter Based on Status Selection (Green, Amber, Red)
+                                    $include = false;
+
+                                    if (in_array('G', $statuses) && $value <= 250) {
+                                        $include = true; // Green
+                                    }
+                                    if (in_array('A', $statuses) && $value > 250 && $value <= 375) {
+                                        $include = true; // Amber
+                                    }
+                                    if (in_array('R', $statuses) && $value > 375) {
+                                        $include = true; // Red
+                                    }
+
+                                    // If the value matches any selected filter, add to the filtered result
+                                    if ($include) {
+                                        $row['status'] = ($value <= 250) ? 'Green' : (($value <= 375) ? 'Amber' : 'Red');
+                                        $filteredRows[] = $row;
+                                    }
                                 }
-                                catch (Exception $e) {
-                                    //
-                                }
+                            }
+                            catch (Exception $e) {
+                                $result = "";
                             }
                         }
                     ?>
-                    <h2>Sensor Table (Sortable and Searchable)</h2>
+                    <h2>Sensor Table</h2>
                     <table>
                         <thead>
                             <tr>
@@ -119,56 +175,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php if ($result && $result->num_rows > 0): ?>
-                            <?php while($row = $result->fetch_assoc()): ?>
-                                <?php for ($i = 1; $i <= 8; $i++):
-                                    $col = 'r0' . $i;
-                                    if (!isset($row[$col])) continue;
-                                    $value = $row[$col];
-                                ?>
-                                <tr>
-                                    <td><?= htmlspecialchars($col) ?></td>
-                                    <td><?= htmlspecialchars($line) ?></td>
-                                    <td><?= htmlspecialchars($value) . "°C"?></td>
-                                    <td>
-                                        <?php
-                                            if ($value <= 250) {
-                                                echo "<span class='status green'>Green</span>";
-                                            } elseif ($value >= 251 && $value <= 375) {
-                                                echo "<span class='status amber'>Amber</span>";
-                                            } elseif ($value >= 376) {
-                                                echo "<span class='status red'>Red</span>";
-                                            }
-                                        ?>
-                                    </td>
-                                    <td><?= htmlspecialchars($row["timestamp"])?></td>
-                                </tr>
-                                <?php endfor; ?>
-                            <?php endwhile; ?>
-                        <?php else: ?>
-                            <tr><td colspan="4">No users found.</td></tr>
-                        <?php endif; ?>
-                            <!-- <tr>
-                                <td>001</td>
-                                <td>Line 4</td>
-                                <td>120°C</td>
-                                <td><span class="status green">Green</span></td>
-                                <td>2025-02-10</td>
-                            </tr>
-                            <tr>
-                                <td>002</td>
-                                <td>Line 5</td>
-                                <td>180°C</td>
-                                <td><span class="status red">Red</span></td>
-                                <td>2025-02-11</td>
-                            </tr>
-                            <tr>
-                                <td>003</td>
-                                <td>Line 4</td>
-                                <td>150°C</td>
-                                <td><span class="status amber">Amber</span></td>
-                                <td>2025-02-12</td>
-                            </tr> -->
+                            <?php
+                                historyrow($filteredRows, $line);
+                            ?>
                         </tbody>
                     </table>
                 </div>

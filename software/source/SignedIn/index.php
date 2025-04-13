@@ -36,7 +36,7 @@ $role = $_SESSION['role'] ?? '';
         <li><a href="history.php">Historical Data</a></li>
         <li><a href="alert.php">Alerts</a></li>
         <li><a href="settings.php">Settings</a></li>
-        <?php if ($role == "admin") echo '<li><a href="admin.html">Manage</a></li>'; ?>
+        <?php if ($role == "admin") echo '<li><a href="admin.php">Manage</a></li>'; ?>
         <li><a href="../">Sign Out</a></li>
     </ul>
     <div class="menu-icon">
@@ -62,7 +62,7 @@ $role = $_SESSION['role'] ?? '';
         </div>
 
         <div class="table-box">
-            <h2>Sensor Table (Sortable and Searchable)</h2>
+            <h2>Sensor Table</h2>
             <table>
                 <thead>
                     <tr>

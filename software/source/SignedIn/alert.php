@@ -34,7 +34,7 @@
                 <li><a href="settings.php">Settings</a></li>
                 <?php
                     if ($role == "admin") {
-                        echo '<li><a href="admin.html">Manage</a></li>';
+                        echo '<li><a href="admin.php">Manage</a></li>';
                     }
                 ?>
                 <li><a href="../">Sign Out</a></li>
@@ -49,10 +49,32 @@
             <h1>Alerts</h1>
             <div class="stats-container">
                 <div class="stat-box">Alert Filter and Search Options
-                    <br> [Sensor ID:_] [Line Number:_]
+                    <form method="POST">
+                        <label for="start">Start Date:</label>
+                        <input type="datetime-local" name="start" value="<?= isset($_POST['start']) ? $_POST['start'] : '' ?>"><br>
+                        <label for="end">End Date:</label>
+                        <input type="datetime-local" name="end" value="<?= isset($_POST['end']) ? $_POST['end'] : '' ?>">
+                        <br>
+                        <label for="sensor">Sensor ID:</label>
+                        <input type="number" name="sensor" value="<?= isset($_POST['sensor']) ? $_POST['sensor'] : '' ?>">
+                        <label for="line">Line Number:</label>
+                        <input type="number" name="line" value="<?= isset($_POST['line']) ? $_POST['line'] : '' ?>">
+                        <br>
+                        Alert Level:
+                        <input type="checkbox" id="green" name="green" value="G" <?= isset($_POST['green']) ? 'checked' : '' ?>>
+                        <label for="green">Low</label>
+                        <input type="checkbox" id="amber" name="amber" value="A" <?= isset($_POST['amber']) ? 'checked' : '' ?>>
+                        <label for="amber">Medium</label>
+                        <input type="checkbox" id="red" name="red" value="R" <?= isset($_POST['red']) ? 'checked' : '' ?>>
+                        <label for="red">High</label>
+                        <br>
+                        <button type="submit" name="apply">Apply Filters</button>
+                        <button type="reset" name="reset">Reset Filters</button>
+                    </form>
+                    <!--<br> [Sensor ID:_] [Line Number:_]
                     <br> [Alert Level: _Low _Medium _High]
                     <br> [Date Range;_ - _]
-                    <br> [Apply Filters] [Reset] Filters]
+                    <br> [Apply Filters] [Reset] Filters]-->
                 </div>
                 <div class="stat-box">Recent Alerts & notifications panel
                     <br> [HIGH] sensor 002 - 195°c (exceed threshold)

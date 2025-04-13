@@ -7,7 +7,26 @@
     $user = $_SESSION['username'];
     $email = $_SESSION['email'];
     $role = $_SESSION['role'];
-    $result = "";
+
+    if ($role != "admin") {
+        header('location: ../');
+    }
+
+    $reqresult = $usrresult = "";
+
+    // This is run on start up for the table to fill
+    require_once('../scripts/dbconnect.php');
+
+    $reqsql = "SELECT * FROM requests LIMIT 10";
+    $usrsql = "SELECT * FROM users LIMIT 10";
+
+    try {
+        $reqresult = $conn->query($reqsql);
+        $usrresult = $conn->query($usrsql);
+    }
+    catch (Exception $e) {
+        $reqresult = $usrresult = "";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -49,28 +68,36 @@
         <div class="dashboard-container">
             <h1>Management</h1>
             <div class="stats-container">
-                <div class="stat-box">Date range selector and filters
+                <div class="stat-box">Request Selector and Filters
                     <form method="POST">
-                        <label for="start">Start Date:</label>
-                        <input type="datetime-local" name="start" value="<?= isset($_POST['start']) ? $_POST['start'] : '' ?>">
-                        <label for="end">End Date:</label>
-                        <input type="datetime-local" name="end" value="<?= isset($_POST['end']) ? $_POST['end'] : '' ?>">
+                        <label for="req_start">Start Date:</label>
+                        <input type="datetime-local" name="req_start" value="<?= isset($_POST['req_start']) ? $_POST['req_start'] : '' ?>"><br>
+                        <label for="req_end">End Date:</label>
+                        <input type="datetime-local" name="req_end" value="<?= isset($_POST['req_end']) ? $_POST['req_end'] : '' ?>">
                         <br>
-                        <label for="sensor">Sensor ID:</label>
-                        <input type="number" name="sensor" value="<?= isset($_POST['sensor']) ? $_POST['sensor'] : '' ?>">
-                        <label for="line">Line Number:</label>
-                        <input type="number" name="line" value="<?= isset($_POST['line']) ? $_POST['line'] : '' ?>">
+                        <label for="req_id">Request ID:</label>
+                        <input type="number" name="req_id" value="<?= isset($_POST['req_id']) ? $_POST['req_id'] : '' ?>">
+                        <br>
+                        <label for="req_email">Email:</label>
+                        <input type="email" name="req_email" value="<?= isset($_POST['req_email']) ? $_POST['req_email'] : '' ?>">
                         <br>
                         <label>Request Type:
-                            <select name="role">
+                            <select name="req_role">
                                 <option value="add">Add</option>
                                 <option value="update">Update</option>
                                 <option value="forgot">Forgot</option>
                             </select>
                         </label>
                         <br>
-                        <button type="submit" name="apply">Apply</button>
-                        <button type="reset" name="reset">Reset</button>
+                        <label>Role Type:
+                            <select name="req_type">
+                                <option value="user">User</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                        </label>
+                        <br>
+                        <button type="submit" name="apply">Apply Filters</button>
+                        <button type="reset" name="reset">Reset Filters</button>
                     </form>
                 </div>
 
@@ -79,18 +106,18 @@
                         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['apply'])) {
                             require_once('../scripts/dbconnect.php');
 
-                            $sql = "SELECT * FROM requests";
-                            $sql .= " LIMIT 100"; // optional: adjust limit
+                            $reqsql = "SELECT * FROM requests";
+                            $reqsql .= " LIMIT 10"; // optional: adjust limit
 
                             try {
-                                $result = $conn->query($sql);
+                                $reqresult = $conn->query($reqsql);
                             }
                             catch (Exception $e) {
-                                $result = "";
+                                $reqresult = "";
                             }
                         }
                     ?>
-                    <h2>User Management Table</h2>
+                    <h2>Request Manager</h2>
                     <table>
                         <thead>
                             <tr>
@@ -99,13 +126,13 @@
                                 <th>Email Address</th>
                                 <th>Username</th>
                                 <th>Role</th>
-                                <th>Timestamp</th>
+                                <th>Requested At</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php if ($result && $result->num_rows > 0): ?>
-                                <?php while($row = $result->fetch_assoc()): ?>
+                            <?php if ($reqresult && $reqresult->num_rows > 0): ?>
+                                <?php while($row = $reqresult->fetch_assoc()): ?>
                                     <tr>
                                         <td><?= htmlspecialchars($row['id']) ?></td>
                                         <td><?= htmlspecialchars($row['type']) ?></td>
@@ -115,7 +142,7 @@
                                         <td><?= htmlspecialchars($row['requested_at']) ?></td>
                                         <td>
                                             <form method="post">
-                                                <input type="hidden" name="user_id" value="<?= htmlspecialchars($row['id']) ?>">
+                                                <input type="hidden" name="req_id" value="<?= htmlspecialchars($row['id']) ?>">
                                                 <button type="submit" name="accept">Accept</button>
                                                 <button type="submit" name="deny">Deny</button>
                                             </form>
@@ -128,18 +155,106 @@
                             <?php
                                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     if (isset($_POST['accept'])) {
-                                        $userId = $_POST['user_id'];
+                                        $reqId = $_POST['req_id'];
                                         require_once("scripts/add.php");
-                                        adduser(htmlspecialchars($userId));
+                                        adduser(htmlspecialchars($reqId));
                                     }
 
                                     if (isset($_POST['deny'])) {
-                                        $userId = $_POST['user_id'];
-                                        // Do something else
-                                        echo "Denied user with ID: " . htmlspecialchars($userId);
+                                        $reqId = $_POST['req_id'];
+                                        require_once("scripts/delete.php");
+                                        delreq(htmlspecialchars($reqId));
                                     }
                                 }
                             ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="stats-container">
+                <div class="stat-box">User Selector and Filters
+                    <form method="POST">
+                        <label for="usr_start">Start Date:</label>
+                        <input type="datetime-local" name="usr_start" value="<?= isset($_POST['usr_start']) ? $_POST['usr_start'] : '' ?>"><br>
+                        <label for="usr_end">End Date:</label>
+                        <input type="datetime-local" name="usr_end" value="<?= isset($_POST['usr_end']) ? $_POST['usr_end'] : '' ?>">
+                        <br>
+                        <label for="usr_id">User ID:</label>
+                        <input type="number" name="usr_id" value="<?= isset($_POST['usr_id']) ? $_POST['usr_id'] : '' ?>">
+                        <br>
+                        <label for="usr_email">Email:</label>
+                        <input type="email" name="usr_email" value="<?= isset($_POST['usr_email']) ? $_POST['usr_email'] : '' ?>">
+                        <br>
+                        <label>Role Type:
+                            <select name="usr_type">
+                                <option value="user">User</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                        </label>
+                        <br>
+                        <button type="submit" name="apply">Apply Filters</button>
+                        <button type="reset" name="reset">Reset Filters</button>
+                    </form>
+                </div>
+
+                <div class="table-box">
+                    <?php
+                        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['apply'])) {
+                            require_once('../scripts/dbconnect.php');
+
+                            $usrsql = "SELECT * FROM users";
+                            $usrsql .= " LIMIT 10"; // optional: adjust limit
+
+                            try {
+                                $usrresult = $conn->query($usrsql);
+                            }
+                            catch (Exception $e) {
+                                $usrresult = "";
+                            }
+                        }
+                    ?>
+                    <h2>User Manager</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>User ID</th>
+                                <th>Email Address</th>
+                                <th>Username</th>
+                                <th>Role</th>
+                                <th>Created At</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php if ($usrresult && $usrresult->num_rows > 0): ?>
+                                <?php while($row = $usrresult->fetch_assoc()): ?>
+                                    <tr>
+                                        <td><?= htmlspecialchars($row['id']) ?></td>
+                                        <td><?= htmlspecialchars($row['email']) ?></td>
+                                        <td><?= htmlspecialchars($row['user_name']) ?></td>
+                                        <td><?= htmlspecialchars($row['role']) ?></td>
+                                        <td><?= htmlspecialchars($row['created_at']) ?></td>
+                                        <td>
+                                            <form method="post">
+                                                <input type="hidden" name="user_id" value="<?= htmlspecialchars($row['id']) ?>">
+                                                <button type="submit" name="delete">Delete</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                <?php endwhile; ?>
+                            <?php else: ?>
+                                <tr><td colspan="5">No Users Found.</td></tr>
+                            <?php endif; ?>
+                                <?php
+                                    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                                        if (isset($_POST['delete'])) {
+                                            $userId = $_POST['user_id'];
+                                            require_once("scripts/delete.php");
+                                            deluser(htmlspecialchars($userId));
+                                        }
+                                    }
+                                ?>
                         </tbody>
                     </table>
                 </div>

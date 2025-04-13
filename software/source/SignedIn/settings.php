@@ -33,7 +33,7 @@
                 <li><a href="settings.php">Settings</a></li>
                 <?php
                     if ($role == "admin") {
-                        echo '<li><a href="admin.html">Manage</a></li>';
+                        echo '<li><a href="admin.php">Manage</a></li>';
                     }
                 ?>
                 <li><a href="../">Sign Out</a></li>
@@ -52,16 +52,16 @@
                 <div class="stat-box">
                     <!--Detail Input Box-->
                     <form action="scripts/update.php" method="POST">
-                        <label>Username: <input type="text" name="username" value="<?php echo htmlspecialchars($user);?>" required></label><br>
-                        <label>Email: <input type="email" name="email" value="<?php echo htmlspecialchars($email);?>" required></label><br>
+                        <label>Username: <input type="text" name="username" required value="<?= isset($user) ? $user : '' ?>"></label><br>
+                        <label>Email: <input type="email" name="email" required  value="<?= isset($email) ? htmlspecialchars($email) : '' ?>"></label><br>
                         <!-- <label>Password: <input type="password" name="pass" required></label><br> -->
 
                         <br>
 
                         <label>Role:
                             <select name="role">
-                                <option value="user">User</option>
-                                <option value="admin">Admin</option>
+                                <option value="user" <?= (isset($role) && $role === 'user') ? 'selected' : '' ?>>User</option>
+                                <option value="admin" <?= (isset($role) && $role === 'admin') ? 'selected' : '' ?>>Admin</option>
                             </select>
                         </label>
                         <button class="m_button" type="submit">Update</button>

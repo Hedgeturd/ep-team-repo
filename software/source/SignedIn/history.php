@@ -7,13 +7,13 @@
     $user = $_SESSION['username'];
     $email = $_SESSION['email'];
     $role = $_SESSION['role'];
-    $result = "";
 
     require_once("scripts/query.php");
     require_once("scripts/table.php");
 
     $filteredRows = [];
     $line = "";
+    $result = "";
 ?>
 
 <!DOCTYPE html>
@@ -80,87 +80,18 @@
                         <button type="reset" name="reset">Reset Filters</button>
                     </form>
                 </div>
-                <div class="stat-box">Historical Temperature Graph
+                <!-- <div class="stat-box">Historical Temperature Graph
                     <br> (Line graph - temperature
                     <br> trends over time)
-                </div>
+                </div> -->
             </div>
             <div class="content-area">
-
+                <!-- SQL Search Table Results -->
                 <div class="table-box">
                     <?php
-                        /* if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['apply'])) {
-                            historyfilters($_POST);
-                        } */
                         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['apply'])) {
-
-                            if (!empty($_POST['line']) && !empty($_POST['sensor'])) {
-                                $sensor = "r0" . $_POST['sensor'];
-                                $line = "line" . $_POST['line'];
-                            }
-
-                            // Process Status Checkboxes (Green, Amber, Red)
-                            $statuses = [];
-                            if (isset($_POST['green'])) $statuses[] = 'G';  // Green
-                            if (isset($_POST['amber'])) $statuses[] = 'A';  // Amber
-                            if (isset($_POST['red'])) $statuses[] = 'R';    // Red
-
-                            require_once('../scripts/dbconnect.php');
-
-                            $sql = "SELECT timestamp, $sensor FROM $line ORDER BY timestamp DESC";
-                            $params = [];
-                            $types = "";
-
-                            if (!empty($_POST['start']) && !empty($_POST['end'])) {
-                                $startDate = date('Y-m-d H:i:s', strtotime($_POST['start']));
-                                $endDate = date('Y-m-d H:i:s', strtotime($_POST['end']));
-
-                                $sql .= " WHERE timestamp BETWEEN ? AND ?";
-                                $params = [$startDate, $endDate];
-                                $types = "ss";
-                            }
-
-                            $sql .= " LIMIT 100"; // optional: adjust limit
-
-                            $stmt = $conn->prepare($sql);
-                            if (!empty($params)) {
-                                $stmt->bind_param($types, ...$params);
-                            }
-                            $stmt->execute();
-
-                            try {
-                                //$result = $conn->query($sql);
-                                $result = $stmt->get_result();
-
-                                // Filter Results Based on Selected Statuses
-                                //$filteredRows = [];
-
-                                while ($row = $result->fetch_assoc()) {
-                                    $value = $row[$sensor];
-
-                                    // Filter Based on Status Selection (Green, Amber, Red)
-                                    $include = false;
-
-                                    if (in_array('G', $statuses) && $value <= 250) {
-                                        $include = true; // Green
-                                    }
-                                    if (in_array('A', $statuses) && $value > 250 && $value <= 375) {
-                                        $include = true; // Amber
-                                    }
-                                    if (in_array('R', $statuses) && $value > 375) {
-                                        $include = true; // Red
-                                    }
-
-                                    // If the value matches any selected filter, add to the filtered result
-                                    if ($include) {
-                                        $row['status'] = ($value <= 250) ? 'Green' : (($value <= 375) ? 'Amber' : 'Red');
-                                        $filteredRows[] = $row;
-                                    }
-                                }
-                            }
-                            catch (Exception $e) {
-                                $result = "";
-                            }
+                            $filteredRows = historyfilters($_POST);
+                            $line = "Line " . $_POST['line'];
                         }
                     ?>
                     <h2>Sensor Table</h2>

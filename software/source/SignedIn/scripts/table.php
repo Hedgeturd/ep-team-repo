@@ -59,6 +59,33 @@
         }
     }
 
+    function alertrow($filteredRows, $line) {
+        if (!empty($filteredRows)) {
+            foreach ($filteredRows as $row) {
+                $view = "Read";
+
+                echo "<tr>";
+                    echo "<td>" . htmlspecialchars($row["id"]) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['location']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row["sensor_id"]) . "</td>";
+                    echo "<td>" . htmlspecialchars($view) . "</td>";
+                    echo "<td>" . htmlspecialchars($row["recorded_at"]) . "</td>";
+                    echo "<td>";
+                        if ($row["flag"] == "green") {
+                            echo "<span class='status green'>LOW</span>";
+                        } elseif ($row["flag"] == "yellow") {
+                            echo "<span class='status amber'>MEDIUM</span>";
+                        } elseif ($row["flag"] == "red") {
+                            echo "<span class='status red'>HIGH</span>";
+                        }
+                    echo "</td>";
+                echo "</tr>";
+            }
+        } else {
+            echo "<tr><td colspan='6'>No Data Found.</td></tr>";
+        }
+    }
+
     function userrow() {
         if ($result && $result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {

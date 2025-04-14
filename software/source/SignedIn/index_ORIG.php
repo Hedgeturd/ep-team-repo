@@ -4,26 +4,28 @@
         header('location: ../');
     endif;
 
-    require_once("scripts/query.php");
-    require_once("scripts/table.php");
-
-    $username = $_SESSION['username'];
+    $user = $_SESSION['username'];
     $email = $_SESSION['email'];
     $role = $_SESSION['role'];
 
-    $filteredRows = [];
-        $line = "";
-        $result = "";
+    require_once('../scripts/dbconnect.php');
+    require_once("scripts/table.php");
+
+    $line = "line4";
+
+    $sqline = "SELECT r01, r02, r03, timestamp FROM $line LIMIT 1";
+    $resultline = $conn->query($sqline);
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
     <head>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Alerts</title>
+        <title>Rakusen's Dashboard</title>
         <link rel="stylesheet" href="../styles/cmn.css">
-        <link rel="stylesheet" href="styles/history.css">
+        <link rel="stylesheet" href="styles/dash.css">
         <link rel="stylesheet" href="styles/table.css">
         <script src="https://kit.fontawesome.com/7135b02251.js" crossorigin="anonymous"></script>
     </head>
@@ -53,62 +55,51 @@
 
         <!-- Main Content -->
         <div class="dashboard-container">
-            <h1>Alerts</h1>
+            <div>Welcome, <?php echo htmlspecialchars($user); ?>!</div>
+            <br>
+            <h1>Dashboard</h1>
             <div class="stats-container">
-                <div class="stat-box">Alert Filter and Search Options
-                    <form method="POST">
-                        <label for="start">Start Date:</label>
-                        <input type="datetime-local" name="start" value="<?= isset($_POST['start']) ? $_POST['start'] : '' ?>"><br>
-                        <label for="end">End Date:</label>
-                        <input type="datetime-local" name="end" value="<?= isset($_POST['end']) ? $_POST['end'] : '' ?>">
-                        <br>
-                        <label for="sensor">Sensor ID:</label>
-                        <input type="number" name="sensor" value="<?= isset($_POST['sensor']) ? $_POST['sensor'] : '1' ?>">
-                        <label for="line">Line Number:</label>
-                        <input type="number" name="line" value="<?= isset($_POST['line']) ? $_POST['line'] : '4' ?>">
-                        <br>
-                        Alert Level:
-                        <input type="checkbox" id="green" name="green" value="G" <?= !isset($_POST['apply']) || isset($_POST['green']) ? 'checked' : '' ?>>
-                        <label for="green">Low</label>
-                        <input type="checkbox" id="yellow" name="yellow" value="A" <?= !isset($_POST['apply']) || isset($_POST['yellow']) ? 'checked' : '' ?>>
-                        <label for="yellow">Medium</label>
-                        <input type="checkbox" id="red" name="red" value="R" <?= !isset($_POST['apply']) || isset($_POST['red']) ? 'checked' : '' ?>>
-                        <label for="red">High</label>
-                        <br>
-                        <button type="submit" name="apply">Apply Filters</button>
-                        <button type="reset" name="reset">Reset Filters</button>
-                    </form>
-                </div>
-                <div class="stat-box">Recent Alerts & notifications panel
-                    <br> [HIGH] sensor 002 - 195°c (exceed threshold)
-                    <br> [MEDIUM] Sensor 005 - 175°c (Close to limit)
-                    <br> [LOW] Sensor 007 - 140°c (Stable)
-                </div>
+                <div class="stat-box">Total Sensors Active <br> [Live Count]</div>
+                <div class="stat-box">Alerts Triggered <br> [Active Alerts]</div>
             </div>
             <div class="content-area">
+                <!-- <div class="graph-box">Real-Time Temperature Graph <br> (Line graph - Sensor data updating in real-time)</div> -->
+                <div class="table-box-plot">
+                    <div id="myPlot" style="width:100%;max-width:700px;height:400px;"></div>
+                        <script>
+                            const trace = {
+                              x: [1, 2, 3, 4, 5],
+                              y: [10, 15, 13, 17, 22],
+                              type: 'scatter', // or 'bar', 'pie', 'line' (alias for scatter with mode: lines)
+                              mode: 'lines+markers',
+                              marker: { color: 'red' }
+                            };
 
+                            const layout = {
+                              title: 'Real-Time Temperature Graph',
+                              yaxis: { title: 'Heat (in Degrees)' },
+                              xaxis: { title: 'Time' },
+                              plot_bgcolor: 'rgba(0,0,0,0)',  // Transparent plot area
+                              paper_bgcolor: 'rgba(0,0,0,0)'
+                            };
+
+                            Plotly.newPlot('myPlot', [trace], layout);
+                        </script>
+                </div>
                 <div class="table-box">
-                    <?php
-                        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['apply'])) {
-                            $filteredRows = alertfilters($_POST);
-                            $line = "Line " . $_POST['line'];
-                        }
-                    ?>
-                    <h2>Alert Table (Sortable and Searchable)</h2>
+                    <h2>Sensor Table (Sortable and Searchable)</h2>
                     <table>
                         <thead>
                             <tr>
-                                <th>Current Alert ID</th>
-                                <th>Location</th>
                                 <th>Sensor ID</th>
+                                <th>Location</th>
+                                <th>Current Temp</th>
                                 <th>Status</th>
-                                <th>Timestamp</th>
-                                <th>Level</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                                alertrow($filteredRows, $line);
+                                dashrow($resultline, $line);
                             ?>
                         </tbody>
                     </table>
@@ -168,7 +159,6 @@
                         });
                     }
                 };
-
         </script>
     </body>
 </html>

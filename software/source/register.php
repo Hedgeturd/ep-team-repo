@@ -50,6 +50,7 @@
 
             <br>
             <?php
+                $_SESSION['err'] = "";
                 require_once('scripts/register.php');
 
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -57,7 +58,11 @@
                 }
             ?>
 
-          <?php echo $_SESSION['err']; ?>
+          <?php
+            if (!empty($_SESSION['err'])) {
+                echo $_SESSION['err'];
+            }
+          ?>
         </div>
       </div>
 

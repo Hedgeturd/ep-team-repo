@@ -59,10 +59,10 @@
         }
     }
 
-    function alertrow($filteredRows, $line) {
+    function alertrow($filteredRows) { //, $line) {
         if (!empty($filteredRows)) {
             foreach ($filteredRows as $row) {
-                $view = "Read";
+                $view = "Unread";
 
                 echo "<tr>";
                     echo "<td>" . htmlspecialchars($row["id"]) . "</td>";

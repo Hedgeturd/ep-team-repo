@@ -1,5 +1,6 @@
 <?php
-    function historyquery($stmt, $sensor, $statuses) {
+    // History Page Table Functions
+    function historyquery($stmt, $sensor, $statuses, $line) {
         //$result = $conn->query($sql);
         $result = $stmt->get_result();
 
@@ -34,8 +35,11 @@
 
     // Pulling the $_POST value from the form before
     function historyfilters($histFilters) {
-        if (!empty($histFilters['line']) && !empty($histFilters['sensor'])) {
+        $sensor = $line = "";
+        if (!empty($histFilters['sensor'])) {
             $sensor = "r0" . $histFilters['sensor'];
+        }
+        if (!empty($histFilters['line'])) {
             $line = "line" . $histFilters['line'];
         }
 
@@ -70,14 +74,15 @@
         $stmt->execute();
 
         try {
-            return historyquery($stmt, $sensor, $statuses);
+            return historyquery($stmt, $sensor, $statuses, $line);
         }
         catch (Exception $e) {
             $result = "";
         }
     }
 
-    function alertquery($stmt, $sensor, $statuses) {
+    // Alerts Page Table Functions
+    function alertquery($stmt, $sensor, $statuses, $line) {
         //$result = $conn->query($sql);
         $result = $stmt->get_result();
 
@@ -86,6 +91,14 @@
 
         while ($row = $result->fetch_assoc()) {
             $temp = $row['temperature'];
+
+            if (!empty($sensor) && $row['sensor_id'] != $sensor) {
+                continue; // Skip this row if it doesn't match the sensor
+            }
+
+            if (!empty($line) && $row['location'] != $line) {
+                continue; // Skip this row if it doesn't match the sensor
+            }
 
             // Filter Based on Status Selection (Green, Amber, Red)
             $include = false;
@@ -112,16 +125,20 @@
     }
 
     function alertfilters($alertform) {
-        if (!empty($alertform['line']) && !empty($alertform['sensor'])) {
+        $sensor = "";
+        $line = "";
+        if (!empty($alertform['sensor'])) {
             $sensor = $alertform['sensor'];
+        }
+        if (!empty($alertform['line'])) {
             $line = "Line " . $alertform['line'];
         }
 
-        // Process Status Checkboxes (Green, Amber, Red)
+        // Process Severity Checkboxes (Green, Yellow, Red)
         $statuses = [];
-        if (isset($alertform['green'])) $statuses[] = 'G';  // Green
-        if (isset($alertform['yellow'])) $statuses[] = 'A';  // Amber
-        if (isset($alertform['red'])) $statuses[] = 'R';    // Red
+        if (isset($alertform['green'])) $statuses[] = 'G';  // Low
+        if (isset($alertform['yellow'])) $statuses[] = 'A';  // Medium
+        if (isset($alertform['red'])) $statuses[] = 'R';    // High
 
         require_once('dbconnect.php');
 
@@ -148,10 +165,86 @@
         $stmt->execute();
 
         try {
-            return alertquery($stmt, $sensor, $statuses);
+            return alertquery($stmt, $sensor, $statuses, $line);
         }
         catch (Exception $e) {
             $result = "";
         }
+    }
+
+    // Admin Page Table Functions
+    function requestfilters($filters) {
+        require_once('../scripts/dbconnect.php'); // Assumes $conn is defined in here
+
+        $conditions = [];
+        $params = [];
+        $types = "";
+
+        // Add conditions only if fields are not empty
+        if (!empty($filters['req_start']) && !empty($filters['req_end'])) {
+            $conditions[] = "requested_at BETWEEN ? AND ?";
+            $params[] = date('Y-m-d H:i:s', strtotime($filters['req_start']));
+            $params[] = date('Y-m-d H:i:s', strtotime($filters['req_end']));
+            $types .= "ss";
+        }
+
+        if (!empty($filters['req_id'])) {
+            $conditions[] = "id = ?";
+            $params[] = $filters['req_id'];
+            $types .= "i";
+        }
+
+        if (!empty($filters['req_email'])) {
+            $conditions[] = "email LIKE ?";
+            $params[] = '%' . $filters['req_email'] . '%';
+            $types .= "s";
+        }
+
+        if (!empty($filters['req_role'])) {
+            $conditions[] = "type = ?";
+            $params[] = $filters['req_role'];
+            $types .= "s";
+        }
+
+        if (!empty($filters['req_type'])) {
+            $conditions[] = "role = ?";
+            $params[] = $filters['req_type'];
+            $types .= "s";
+        }
+
+        // Base query
+        $sql = "SELECT * FROM requests"; // Replace with your actual table name
+
+        // Add WHERE clause if any filters are active
+        if (!empty($conditions)) {
+            $sql .= " WHERE " . implode(" AND ", $conditions);
+        }
+
+        $sql .= " ORDER BY requested_at DESC LIMIT 100";
+
+        // Prepare and bind
+        $stmt = $conn->prepare($sql);
+        if (!empty($params)) {
+            $stmt->bind_param($types, ...$params);
+        }
+
+        $stmt->execute();
+
+        try {
+            return requestquery($stmt);
+        } catch (Exception $e) {
+            return [];
+        }
+    }
+
+    function requestquery($stmt) {
+        $result = $stmt->get_result();
+        $rows = [];
+
+        while ($row = $result->fetch_assoc()) {
+            $rows[] = $row;
+        }
+
+        return $rows;
     }
 ?>

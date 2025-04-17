@@ -1,7 +1,7 @@
 <?php
     function deluser($id) {
         if (isset($id)) {
-            require_once("dbconnect.php");
+            require_once("../scripts/dbconnect.php");
             $sql = "SELECT * FROM users WHERE id = $id";
             $result = $conn->query($sql);
             $row = $result->fetch_assoc();
@@ -38,7 +38,7 @@
 
     function delreq($id) {
             if (isset($id)) {
-                require_once("dbconnect.php");
+                require_once("../scripts/dbconnect.php");
                 $sql = "SELECT * FROM requests WHERE id = $id";
                 $result = $conn->query($sql);
                 $row = $result->fetch_assoc();

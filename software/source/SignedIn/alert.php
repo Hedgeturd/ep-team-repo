@@ -63,9 +63,9 @@
                         <input type="datetime-local" name="end" value="<?= isset($_POST['end']) ? $_POST['end'] : '' ?>">
                         <br>
                         <label for="sensor">Sensor ID:</label>
-                        <input type="number" name="sensor" value="<?= isset($_POST['sensor']) ? $_POST['sensor'] : '1' ?>">
+                        <input type="number" name="sensor" value="<?= isset($_POST['sensor']) ? $_POST['sensor'] : '' ?>">
                         <label for="line">Line Number:</label>
-                        <input type="number" name="line" value="<?= isset($_POST['line']) ? $_POST['line'] : '4' ?>">
+                        <input type="number" name="line" value="<?= isset($_POST['line']) ? $_POST['line'] : '' ?>">
                         <br>
                         Alert Level:
                         <input type="checkbox" id="green" name="green" value="G" <?= !isset($_POST['apply']) || isset($_POST['green']) ? 'checked' : '' ?>>
@@ -91,10 +91,10 @@
                     <?php
                         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['apply'])) {
                             $filteredRows = alertfilters($_POST);
-                            $line = "Line " . $_POST['line'];
+                            //$line = "Line " . $_POST['line'];
                         }
                     ?>
-                    <h2>Alert Table (Sortable and Searchable)</h2>
+                    <h2>Alert Table</h2>
                     <table>
                         <thead>
                             <tr>
@@ -108,7 +108,7 @@
                         </thead>
                         <tbody>
                             <?php
-                                alertrow($filteredRows, $line);
+                                alertrow($filteredRows); //, $line);
                             ?>
                         </tbody>
                     </table>

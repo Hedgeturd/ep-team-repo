@@ -15,7 +15,9 @@
     $reqresult = $usrresult = "";
 
     // This is run on start up for the table to fill
-    require_once('../scripts/dbconnect.php');
+    require_once('scripts/dbconnect.php');
+    require_once("scripts/query.php");
+    require_once("scripts/table.php");
 
     $reqsql = "SELECT * FROM requests LIMIT 10";
     $usrsql = "SELECT * FROM users LIMIT 10";
@@ -104,17 +106,7 @@
                 <div class="table-box">
                     <?php
                         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['apply'])) {
-                            require_once('../scripts/dbconnect.php');
-
-                            $reqsql = "SELECT * FROM requests";
-                            $reqsql .= " LIMIT 10"; // optional: adjust limit
-
-                            try {
-                                $reqresult = $conn->query($reqsql);
-                            }
-                            catch (Exception $e) {
-                                $reqresult = "";
-                            }
+                            $filteredResults = requestfilters($_POST);
                         }
                     ?>
                     <h2>Request Manager</h2>
@@ -131,27 +123,28 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php if ($reqresult && $reqresult->num_rows > 0): ?>
-                                <?php while($row = $reqresult->fetch_assoc()): ?>
-                                    <tr>
-                                        <td><?= htmlspecialchars($row['id']) ?></td>
-                                        <td><?= htmlspecialchars($row['type']) ?></td>
-                                        <td><?= htmlspecialchars($row['email']) ?></td>
-                                        <td><?= htmlspecialchars($row['user_name']) ?></td>
-                                        <td><?= htmlspecialchars($row['role']) ?></td>
-                                        <td><?= htmlspecialchars($row['requested_at']) ?></td>
-                                        <td>
-                                            <form method="post">
-                                                <input type="hidden" name="req_id" value="<?= htmlspecialchars($row['id']) ?>">
-                                                <button type="submit" name="accept">Accept</button>
-                                                <button type="submit" name="deny">Deny</button>
+                            <?php
+                            if (!empty($filteredResults)) {
+                                foreach ($filteredResults as $row) {
+                                    echo "<tr>";
+                                        echo "<td>" . htmlspecialchars($row['id']) . "</td>";
+                                        echo "<td>" . htmlspecialchars($row['type']) . "</td>";
+                                        echo "<td>" . htmlspecialchars($row['email']) . "</td>";
+                                        echo "<td>" . htmlspecialchars($row['user_name']) . "</td>";
+                                        echo "<td>" . htmlspecialchars($row['role']) . "</td>";
+                                        echo "<td>" . htmlspecialchars($row['requested_at']) . "</td>";
+                                        echo "<td>
+                                            <form method='post'>
+                                                <input type='hidden' name='req_id' value=" . htmlspecialchars($row['id']) . ">
+                                                <button type='submit' name='accept'>Accept</button>
+                                                <button type='submit' name='deny'>Deny</button>
                                             </form>
-                                        </td>
-                                    </tr>
-                                <?php endwhile; ?>
-                            <?php else: ?>
-                                <tr><td colspan="6">No Requests Found.</td></tr>
-                            <?php endif; ?>
+                                        </td>";
+                                    echo "</tr>";
+                                }
+                            } else {
+                                echo "<tr><td colspan='6'>No Requests Found.</td></tr>";
+                            } ?>
                             <?php
                                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     if (isset($_POST['accept'])) {

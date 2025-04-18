@@ -51,7 +51,7 @@
             <div class="dashboard-container">
                 <div class="stat-box">
                     <!--Detail Input Box-->
-                    <form action="scripts/update.php" method="POST">
+                    <form method="POST">
                         <label>Username: <input type="text" name="username" required value="<?= isset($user) ? $user : '' ?>"></label><br>
                         <label>Email: <input type="email" name="email" required  value="<?= isset($email) ? htmlspecialchars($email) : '' ?>"></label><br>
                         <!-- <label>Password: <input type="password" name="pass" required></label><br> -->
@@ -64,7 +64,7 @@
                                 <option value="admin" <?= (isset($role) && $role === 'admin') ? 'selected' : '' ?>>Admin</option>
                             </select>
                         </label>
-                        <button class="m_button" type="submit">Update</button>
+                        <button name="update" class="m_button" type="submit">Update</button>
                     </form>
 
                     <br>
@@ -73,6 +73,17 @@
                     <div>
                         <a href="../forgot.html">Change Password</a>
                     </div>
+
+                    <?php
+                        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update'])) {
+                            require_once("../scripts/dbconnect.php");
+                            $sql = "SELECT id FROM users WHERE email = '$email'";
+                            $user_id = $conn->query($sql);
+
+                            require_once("scripts/update.php");
+                            account_update($_POST, $user_id);
+                        }
+                    ?>
                 </div>
             </div>
         </div>

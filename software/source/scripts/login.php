@@ -7,11 +7,13 @@
 
     $sql = "SELECT * FROM requests WHERE user_name = '$user'";
     $result = $conn->query($sql);
-    $row = $result->fetch_assoc();
 
-    if (isset($result) && $row['type'] == 'forgot') {
-        if (password_verify($password, $row['password'])) {
-            header("Location: ../newpass.php");
+    if ($result->num_rows == 1) {
+        $row = $result->fetch_assoc();
+        if ($row['type'] == 'forgot') {
+            if ( password_verify($password, $row['password']) ) {
+                header("Location: ../newpass.php");
+            }
         }
     }
 
